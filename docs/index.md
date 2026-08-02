@@ -49,7 +49,7 @@ Generative models aim to learn complex data distributions and generate new sampl
 
 
 ## Related Courses Offered in Previous Years
-- [CS492(D): Diffusion Models and Their Applications](https://mhsung.github.io/kaist-cs492d-fall-2025/){:target="_blank"}
+- [CS492(D): Diffusion Models and Their Applications](https://diffusion.kaist.ac.kr/){:target="_blank"}
 - [CS492(D): Diffusion Models and Their Applications](https://mhsung.github.io/kaist-cs492d-fall-2024/){:target="_blank"}
 
 
