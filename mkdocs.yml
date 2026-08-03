@@ -1,4 +1,4 @@
-site_name: AIC312 Introduction to Generative Models (KAIST, Fall 2026)
+site_name: AIC313 Introduction to Generative Models (KAIST, Fall 2026)
 site_url: https://diffusion.kaist.ac.kr/
 site_author: Minhyuk Sung
 
@@ -42,7 +42,7 @@ nav:
 extra:
   analytics:
     provider: google
-    property: G-B8SSD5F8FW
+    property: G-1VHYJZSMF1
   links:
     lec01: https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy82MDU2MjAyM2I2NjQwMjgyL0VkOFQzMzF6allkUHZTTElRRnpqRkM4QlF3Y2FOZkM5MVBtNTRlcnZJUk1fbWc%5FZT1yc0tjTlQ&cid=60562023B6640282&id=60562023B6640282%21s7ddf13df8d734f87bd22c8405ce3142f&parId=60562023B6640282%21s1f04e32a613643ea8f3a45539dc2c1ff&o=OneUp
     lec02: https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy82MDU2MjAyM2I2NjQwMjgyL0VURGlxMktycFhKT254S2VqU3BfRl80Qkw0UkVUWWd6Rm4tb2xvTjB5U2ctM0E%5FZT1ZT2JJWGI&cid=60562023B6640282&id=60562023B6640282%21s62abe230a5ab4e729f129e8d2a7f17fe&parId=60562023B6640282%21s1f04e32a613643ea8f3a45539dc2c1ff&o=OneUp

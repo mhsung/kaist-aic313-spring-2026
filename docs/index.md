@@ -3,7 +3,7 @@ hide:
   - navigation
 ---
 
-# Introduction to Generative Models
+# AIC313: Introduction to Generative Models
 
 <h3><b>
 <a href="http://mhsung.github.io/" target="_blank">Minhyuk Sung</a>, <a href="https://www.kaist.ac.kr/" target="_blank">KAIST</a>, Fall 2026
@@ -12,7 +12,7 @@ hide:
 
 ![Teaser](assets/teaser.png){ width=97.5% }[^1]
 
-[^1]: Teaser image credits: Song et al., Score-Based Generative Modeling through Stochastic Differential Equations, ICLR 2021.<br>
+[^1]: AI-generated using GPT<br>
 
 
 ## Time & Location
