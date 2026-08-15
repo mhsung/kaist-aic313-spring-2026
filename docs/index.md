@@ -3,7 +3,7 @@ hide:
   - navigation
 ---
 
-# AIC313: Introduction to Generative Models
+# AIC313/CS378: Introduction to Generative Models
 
 <h3><b>
 <a href="http://mhsung.github.io/" target="_blank">Minhyuk Sung</a>, <a href="https://www.kaist.ac.kr/" target="_blank">KAIST</a>, Fall 2026
