@@ -38,14 +38,21 @@ Generative models aim to learn complex data distributions and generate new sampl
 ## Course Staff
 **Instructor**: [Minhyuk Sung](https://mhsung.github.io/){:target="_blank"} ([mhsung@kaist.ac.kr](mailto:mhsung@kaist.ac.kr))
 
-<!--
 **Course Assistants:**
 
-- Juil Koo ([63days@kaist.ac.kr](mailto:63days@kaist.ac.kr))
-- Seungwoo Yoo ([dreamy1534@kaist.ac.kr](mailto:dreamy1534@kaist.ac.kr))
-- Yuseung Lee ([phillip0701@kaist.ac.kr](mailto:phillip0701@kaist.ac.kr))
+- Mingue Park ([kicikicik@kaist.ac.kr](mailto:kicikicik@kaist.ac.kr))
 - Yunhong Min ([dbsghd363@kaist.ac.kr](mailto:dbsghd363@kaist.ac.kr))
--->
+- Prin Phunyaphibarn ([prin10517@kaist.ac.kr](mailto:prin10517@kaist.ac.kr))
+- Yunjae Jeong ([frogjj@kaist.ac.kr](mailto:frogjj@kaist.ac.kr))
+
+
+
+## Textbook
+The main reference for this course is:
+
+- **Kevin P. Murphy, _Probabilistic Machine Learning: Advanced Topics_, MIT Press.**
+
+We will mainly use selected material from **Part I: Fundamentals** and **Part IV: Generation**, supplemented with recent papers and lecture notes where appropriate.
 
 
 ## Related Courses Offered in Previous Years
@@ -91,24 +98,252 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
 ## Schedule
 (Subject to Change) 
 
-| Week | Mon | Topic | Wed | Topic |
-| :----: | :----: | :----: | :----: | :----: |
-| 1 | Aug 31 | **Course Introduction** | Sep 02 | **Backgrounds** |
-| 2 | Sep 07 | **Autoregressive Models 1** | Sep 09 | **Autoregressive Models 2** |
-| 3 | Sep 14 | **Maximum Likelihood Learning** | Sep 16 | **Variational Autoencoders 1** |
-| 4 | Sep 21 | **Variational Autoencoders 2** | Sep 23 | No Class (Break) |
-| 5 | Sep 28 | **Generative Adversarial Networks 1** | Sep 30 | **Generative Adversarial Networks 2** |
-| 6 | Oct 05 | No Class (Substitute Holiday for National Foundation Day) | Oct 07 | **Normalizing Flows 1** |
-| 7 | Oct 12 | **Normalizing Flows 2** | Oct 14 | **Midterm Wrap-Up** |
-| 8 | Oct 19 | No Class (Midterm Week) | Oct 21 | No Class (Midterm Week) |
-| 9 | Oct 26 | **Diffusion Models 1** | Oct 28 | **Diffusion Models 2** |
-| 10 | Nov 02 | **Diffusion Models 3** | Nov 04 | **Score-Based Models** |
-| 11 | Nov 09 | **Conditional Generation /<br>Latent Diffusion** | Nov 11 | **Flow Matching 1** |
-| 12 | Nov 16 | **Flow Matching 2** | Nov 18 | **Inference-Time Guidance 1** |
-| 13 | Nov 23 | **Inference-Time Guidance 2** | Nov 25 | **Course Wrap-Up** |
-| 14 | Nov 30 | **Guest Lecture 1** | Dec 02 | **Guest Lecture 2** |
-| 15 | Dec 07 | Project Presentations 1 | Dec 09 | Project Presentations 2 |
-| 16 | Dec 14 | No Class (Final Week) | Dec 16 | No Class (Final Week) |
+<table>
+  <thead>
+    <tr>
+      <th>Week</th>
+      <th>Date</th>
+      <th>Topic</th>
+      <th>Related Sections</th>
+      <th>Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2" align="center">1</td>
+      <td>Aug 31</td>
+      <td><strong>Course Introduction</strong></td>
+      <td>Ch. 20.1–20.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 02</td>
+      <td><strong>Probability Background</strong></td>
+      <td>
+        Ch. 2.1.2–2.1.3, 2.1.5–2.1.6;<br>
+        Ch. 2.2.1.2, 2.2.2.1; Ch. 2.3.1.1;<br>
+        Ch. 3.2.1.1
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">2</td>
+      <td>Sep 07</td>
+      <td><strong>Autoregressive Models</strong></td>
+      <td>Ch. 22.1–22.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 09</td>
+      <td><strong>Variational Autoencoders 1</strong></td>
+      <td>Ch. 21.1–21.2.2</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">3</td>
+      <td>Sep 14</td>
+      <td><strong>Variational Autoencoders 2</strong></td>
+      <td>Ch. 21.2.3–21.2.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 16</td>
+      <td><strong>Normalizing Flows 1</strong></td>
+      <td>Ch. 23.1–23.2.3</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">4</td>
+      <td>Sep 21</td>
+      <td><mark><strong>FastGen / KCloud Session</strong></mark></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 23</td>
+      <td>No Class (Break)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">5</td>
+      <td>Sep 28</td>
+      <td><strong>Normalizing Flows 2</strong></td>
+      <td>Ch. 23.2.4 and 23.3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 30</td>
+      <td><strong>Generative Adversarial Networks</strong></td>
+      <td>Ch. 26.1–26.3.3</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">6</td>
+      <td>Oct 05</td>
+      <td>No Class (Substitute Holiday for National Foundation Day)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oct 07</td>
+      <td><strong>Energy-Based Models 1</strong></td>
+      <td>Ch. 24.1–24.2</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">7</td>
+      <td>Oct 12</td>
+      <td><strong>Energy-Based Models 2</strong></td>
+      <td>Ch. 24.3–24.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oct 14</td>
+      <td><strong>Midterm Wrap-Up</strong></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">8</td>
+      <td>Oct 19</td>
+      <td>No Class (Midterm Week)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oct 21</td>
+      <td>No Class (Midterm Week)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">9</td>
+      <td>Oct 26</td>
+      <td><strong>Diffusion Models 1</strong></td>
+      <td>Ch. 25.1–25.2.2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oct 28</td>
+      <td><strong>Diffusion Models 2</strong></td>
+      <td>Ch. 25.2.3–25.3.3</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">10</td>
+      <td>Nov 02</td>
+      <td><strong>Diffusion Models 3</strong></td>
+      <td>Ch. 25.4–25.5.3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nov 04</td>
+      <td><strong>Conditional Generation / Latent Diffusion</strong></td>
+      <td>Ch. 25.5.4 and 25.6</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">11</td>
+      <td>Nov 09</td>
+      <td><strong>Flow Matching 1</strong></td>
+      <td>
+        Ch. 23.2.6 and 25.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nov 11</td>
+      <td><mark><strong>FastGen Recap / CreativeGen</strong></mark></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">12</td>
+      <td>Nov 16</td>
+      <td><strong>Flow Matching 2</strong></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nov 18</td>
+      <td><strong>Inference-Time Guidance</strong></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">13</td>
+      <td>Nov 23</td>
+      <td><strong>Discrete Diffusion</strong></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nov 25</td>
+      <td><strong>Course Wrap-Up</strong></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">14</td>
+      <td>Nov 30</td>
+      <td><strong>Guest Lecture 1</strong></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dec 02</td>
+      <td><strong>Guest Lecture 2</strong></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">15</td>
+      <td>Dec 07</td>
+      <td><mark><strong>Project Presentations 1</strong></mark></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dec 09</td>
+      <td><mark><strong>Project Presentations 2</strong></mark></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">16</td>
+      <td>Dec 14</td>
+      <td>No Class (Final Week)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dec 16</td>
+      <td>No Class (Final Week)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## AI Coding Assistant Tool Policy
