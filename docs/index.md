@@ -50,7 +50,8 @@ Generative models aim to learn complex data distributions and generate new sampl
 ## Textbook
 The main reference for this course is:
 
-- **Kevin P. Murphy, _Probabilistic Machine Learning: Advanced Topics_, MIT Press.**
+**Kevin P. Murphy, _Probabilistic Machine Learning: Advanced Topics_, MIT Press.**  
+[**[Download Link]**](https://probml.github.io/pml-book/book2.html){:target="_blank"}
 
 We will mainly use selected material from **Part I: Fundamentals** and **Part IV: Generation**, supplemented with recent papers and lecture notes where appropriate.
 
