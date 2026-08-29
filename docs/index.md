@@ -93,7 +93,7 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
 
 - Project Team Sign-Up: ==Due Sep 28 (Mon)==  
 - FastGen Challenge Submission: ==Due Nov 14 (Sat)== 
-- CreativeGen Challenge Submission: ==Due Dec 06 (Sat)== 
+- CreativeGen Challenge Submission: ==Due Dec 05 (Sat)== 
 
 
 ## Schedule
