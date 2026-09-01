@@ -68,24 +68,6 @@ We will mainly use selected material from **Part I: Fundamentals** and **Part IV
 - CreativeGen Challenge: 20%
 
 
-<!--
-## Paper List
-[Paper List](https://docs.google.com/spreadsheets/d/1j7amDru9bRQsQgp2pfm1a8GrZ6K0HWwCDORGq-sj7dQ/edit?usp=sharing){:target="_blank" .md-button}
-
-
-## Useful Resources
-- [Fall 2024 Course Webpage](https://mhsung.github.io/kaist-cs492d-fall-2024/){:target="_blank"}
-- [SIGGRAPH 2025 Course: Diffusion Models for Image and Video Generation: From Foundations to Emerging Directions](https://geometry.cs.ucl.ac.uk/courses/diffusion_ImageVideo_sigg25/){:target="_blank"}
-- [SIGGRAPH 2024 Course: Diffusion Models for Visual Content Generation](https://geometry.cs.ucl.ac.uk/courses/diffusion4ContentCreation_sigg24/){:target="_blank"}
-- [CVPR 2023 Tutorial: Denoising Diffusion Models: A Generative Learning Big Bang](https://cvpr2023-tutorial-diffusion-models.github.io/){:target="_blank"}
-- ["Generative Modeling by Estimating Gradients of the Data Distribution", Yang Song.](https://yang-song.net/blog/2021/score/){:target="_blank"}
-- ["What are Diffusion Models?", Lilian Weng.](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/){:target="_blank"}
-- ["Understanding Diffusion Models: A Unified Perspective". Calvin Luo.](https://arxiv.org/abs/2208.11970){:target="_blank"}
-- ["Tutorial on Diffusion Models for Imaging and Vision". Stanley H. Chan.](https://arxiv.org/abs/2403.18103){:target="_blank"}
-- ["Step-by-Step Diffusion: An Elementary Tutorial". Preetum Nakkiran, Arwen Bradley, Hattie Zhou, and Madhu Advani.](https://arxiv.org/abs/2406.08929){:target="_blank"}
--->
-
-
 ## Important Dates
 ALL ASSIGNMENTS ARE DUE 23:59 KST.  
 
@@ -115,7 +97,9 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Aug 31</td>
       <td><strong>Course Introduction</strong></td>
       <td>Ch. 20.1–20.4</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec01 }}" target="_blank" rel="noopener noreferrer">Slides</a>
+      </td>
     </tr>
     <tr>
       <td>Sep 02</td>
@@ -125,7 +109,9 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
         Ch. 2.2.1.2, 2.2.2.1; Ch. 2.3.1.1;<br>
         Ch. 3.2.1.1
       </td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec02 }}" target="_blank" rel="noopener noreferrer">Slides</a>
+      </td>
     </tr>
 
     <tr>
