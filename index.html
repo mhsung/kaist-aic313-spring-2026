@@ -1,0 +1,933 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Minhyuk Sung">
+      
+      
+        <link rel="canonical" href="https://diffusion.kaist.ac.kr/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-1VHYJZSMF1"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-1VHYJZSMF1",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-1VHYJZSMF1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aic313cs378-introduction-to-generative-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" class="md-header__button md-logo" aria-label="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" class="md-nav__button md-logo" aria-label="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#time-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time &amp; Location
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-staff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course Staff
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#textbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Textbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-courses-offered-in-previous-years" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Courses Offered in Previous Years
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Dates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-coding-assistant-tool-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Coding Assistant Tool Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#time-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time &amp; Location
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Description
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#course-staff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Course Staff
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#textbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Textbook
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-courses-offered-in-previous-years" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Courses Offered in Previous Years
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Dates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schedule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schedule
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-coding-assistant-tool-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI Coding Assistant Tool Policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="aic313cs378-introduction-to-generative-models">AIC313/CS378: Introduction to Generative Models</h1>
+<h3><b>
+<a href="http://mhsung.github.io/" target="_blank">Minhyuk Sung</a>, <a href="https://www.kaist.ac.kr/" target="_blank">KAIST</a>, Fall 2026
+</b></h3>
+<p><br /></p>
+<p><img alt="Teaser" src="assets/teaser.png" width="97.5%" /><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<h2 id="time-location">Time &amp; Location</h2>
+<p><strong>Time</strong>: Mon/Wed 10:30 a.m. - 11:45 a.m. (KST) <br />
+<strong>Location</strong>: E3-5 Room 210</p>
+<!-- [Zoom Link](https://kaist.zoom.us/j/83695846631){:target="_blank" .md-button} -->
+
+<h2 id="description">Description</h2>
+<p>Generative models aim to learn complex data distributions and generate new samples, providing the foundation for a wide range of applications in computer vision, computer graphics, natural language processing, and scientific discovery. With the rapid development of deep learning, diverse generative modeling approaches have emerged, each offering distinct perspectives on learning and sampling from data distributions. In this course, we will cover the fundamental principles and recent advances in generative models, including autoregressive models, variational autoencoders, generative adversarial networks, normalizing flows, diffusion and score-based models, and flow matching. We will also discuss conditional generation, inference-time guidance, practical applications, and remaining challenges in the field.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Solid background in machine learning and deep learning</li>
+<li>Hands-on experience with neural network implementation</li>
+<li>Recommended prior courses:<ul>
+<li>MAS.20050 Probability and Statistics</li>
+<li>MAS.20001 Differential Equations and Applications</li>
+<li>CS.30701 Introduction to Deep Learning</li>
+</ul>
+</li>
+</ul>
+<h2 id="course-staff">Course Staff</h2>
+<p><strong>Instructor</strong>: <a href="https://mhsung.github.io/" target="_blank">Minhyuk Sung</a> (<a href="mailto:mhsung@kaist.ac.kr">mhsung@kaist.ac.kr</a>)</p>
+<p><strong>Course Assistants:</strong></p>
+<ul>
+<li>Mingue Park (<a href="mailto:kicikicik@kaist.ac.kr">kicikicik@kaist.ac.kr</a>)</li>
+<li>Yunhong Min (<a href="mailto:dbsghd363@kaist.ac.kr">dbsghd363@kaist.ac.kr</a>)</li>
+<li>Prin Phunyaphibarn (<a href="mailto:prin10517@kaist.ac.kr">prin10517@kaist.ac.kr</a>)</li>
+<li>Yunjae Jeong (<a href="mailto:frogjj@kaist.ac.kr">frogjj@kaist.ac.kr</a>)</li>
+</ul>
+<h2 id="textbook">Textbook</h2>
+<p>The main reference for this course is:</p>
+<p><strong>Kevin P. Murphy, <em>Probabilistic Machine Learning: Advanced Topics</em>, MIT Press.</strong><br />
+<a href="https://probml.github.io/pml-book/book2.html" target="_blank"><strong>[Download Link]</strong></a></p>
+<p>We will mainly use selected material from <strong>Part I: Fundamentals</strong> and <strong>Part IV: Generation</strong>, supplemented with recent papers and lecture notes where appropriate.</p>
+<h2 id="related-courses-offered-in-previous-years">Related Courses Offered in Previous Years</h2>
+<ul>
+<li><a href="https://diffusion.kaist.ac.kr/" target="_blank">CS492(D): Diffusion Models and Their Applications</a></li>
+<li><a href="https://mhsung.github.io/kaist-cs492d-fall-2024/" target="_blank">CS492(D): Diffusion Models and Their Applications</a></li>
+</ul>
+<h2 id="grading">Grading</h2>
+<ul>
+<li>Participation &amp; Quizzes: 15%</li>
+<li>Exams: 45%</li>
+<li>FastGen Challenge: 20%</li>
+<li>CreativeGen Challenge: 20%</li>
+</ul>
+<h2 id="important-dates">Important Dates</h2>
+<p>ALL ASSIGNMENTS ARE DUE 23:59 KST.  </p>
+<p>(Subject to Change)  </p>
+<ul>
+<li>Project Team Sign-Up: <mark>Due Sep 28 (Mon)</mark>  </li>
+<li>FastGen Challenge Submission: <mark>Due Nov 14 (Sat)</mark> </li>
+<li>CreativeGen Challenge Submission: <mark>Due Dec 05 (Sat)</mark> </li>
+</ul>
+<h2 id="schedule">Schedule</h2>
+<p>(Subject to Change) </p>
+<table>
+  <thead>
+    <tr>
+      <th>Week</th>
+      <th>Date</th>
+      <th>Topic</th>
+      <th>Related Sections</th>
+      <th>Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2" align="center">1</td>
+      <td>Aug 31</td>
+      <td><strong>Course Introduction</strong></td>
+      <td>Ch. 20.1–20.4</td>
+      <td>
+      <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy82MDU2MjAyM2I2NjQwMjgyL0lRQ3E1dzFMQk9ZdlJyUm9oaGU3eHFrZUFid1ozUllIbFBIel9EQVQyT0cwZmN3P2U9OURzS0o5&cid=60562023B6640282&id=60562023B6640282%21s4b0de7aae604462fb4688617bbc6a91e&parId=60562023B6640282%21s6facf5ce255248ab8e3a6a4eb357ee90&o=OneUp" target="_blank" rel="noopener noreferrer">Slides</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Sep 02</td>
+      <td><strong>Probability Background</strong></td>
+      <td>
+        Ch. 2.1.2–2.1.3, 2.1.5–2.1.6;<br>
+        Ch. 2.2.1.2, 2.2.2.1; Ch. 2.3.1.1;<br>
+        Ch. 3.2.1.1
+      </td>
+      <td>
+      <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy82MDU2MjAyM2I2NjQwMjgyL0lRRENQanpxbzlweVJybWhJVk4yMlN3NEFTWnBqLXNHcE1hNkZxWExkZFNUZmpjP2U9UGw1dzdX&cid=60562023B6640282&id=60562023B6640282%21sea3c3ec2daa34672b9a1215376d92c38&parId=60562023B6640282%21s6facf5ce255248ab8e3a6a4eb357ee90&o=OneUp" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="https://youtu.be/ebekKZD6mEk" target="_blank" rel="noopener noreferrer">Recording</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">2</td>
+      <td>Sep 07</td>
+      <td><strong>Autoregressive Models</strong></td>
+      <td>Ch. 22.1–22.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 09</td>
+      <td><strong>Variational Autoencoders 1</strong></td>
+      <td>Ch. 21.1–21.2.2</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">3</td>
+      <td>Sep 14</td>
+      <td><strong>Variational Autoencoders 2</strong></td>
+      <td>Ch. 21.2.3–21.2.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 16</td>
+      <td><strong>Normalizing Flows 1</strong></td>
+      <td>Ch. 23.1–23.2.3</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">4</td>
+      <td>Sep 21</td>
+      <td><mark><strong>FastGen / KCloud Session</strong></mark></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 23</td>
+      <td>No Class (Break)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">5</td>
+      <td>Sep 28</td>
+      <td><strong>Normalizing Flows 2</strong></td>
+      <td>Ch. 23.2.4 and 23.3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sep 30</td>
+      <td><strong>Generative Adversarial Networks</strong></td>
+      <td>Ch. 26.1–26.3.3</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">6</td>
+      <td>Oct 05</td>
+      <td>No Class (Substitute Holiday for National Foundation Day)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oct 07</td>
+      <td><strong>Energy-Based Models 1</strong></td>
+      <td>Ch. 24.1–24.2</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">7</td>
+      <td>Oct 12</td>
+      <td><strong>Energy-Based Models 2</strong></td>
+      <td>Ch. 24.3–24.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oct 14</td>
+      <td><strong>Midterm Wrap-Up</strong></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">8</td>
+      <td>Oct 19</td>
+      <td>No Class (Midterm Week)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oct 21</td>
+      <td>No Class (Midterm Week)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">9</td>
+      <td>Oct 26</td>
+      <td><strong>Diffusion Models 1</strong></td>
+      <td>Ch. 25.1–25.2.2</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Oct 28</td>
+      <td><strong>Diffusion Models 2</strong></td>
+      <td>Ch. 25.2.3–25.3.3</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">10</td>
+      <td>Nov 02</td>
+      <td><strong>Diffusion Models 3</strong></td>
+      <td>Ch. 25.4–25.5.3</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nov 04</td>
+      <td><strong>Conditional Generation / Latent Diffusion</strong></td>
+      <td>Ch. 25.5.4 and 25.6</td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">11</td>
+      <td>Nov 09</td>
+      <td><strong>Flow Matching 1</strong></td>
+      <td>
+        Ch. 23.2.6 and 25.4</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nov 11</td>
+      <td><mark><strong>FastGen Recap / CreativeGen</strong></mark></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">12</td>
+      <td>Nov 16</td>
+      <td><strong>Flow Matching 2</strong></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nov 18</td>
+      <td><strong>Inference-Time Guidance</strong></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">13</td>
+      <td>Nov 23</td>
+      <td><strong>Discrete Diffusion</strong></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nov 25</td>
+      <td><strong>Course Wrap-Up</strong></td>
+      <td>
+      </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">14</td>
+      <td>Nov 30</td>
+      <td><strong>Guest Lecture 1</strong></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dec 02</td>
+      <td><strong>Guest Lecture 2</strong></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">15</td>
+      <td>Dec 07</td>
+      <td><mark><strong>Project Presentations 1</strong></mark></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dec 09</td>
+      <td><mark><strong>Project Presentations 2</strong></mark></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" align="center">16</td>
+      <td>Dec 14</td>
+      <td>No Class (Final Week)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Dec 16</td>
+      <td>No Class (Final Week)</td>
+      <td>—</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="ai-coding-assistant-tool-policy">AI Coding Assistant Tool Policy</h2>
+<p><strong>You are allowed (and even encouraged) to utilize AI coding assistant tools</strong>, such as ChatGPT, Copilot, Codex, and Code Intelligence, for your programming assignments and projects. Utilizing AI coding assistant tools will not be deemed as plagiarism. However, it is still <strong>strictly prohibited to directly copy code from the Internet or from someone else</strong>. Doing so will lead to a score of zero and a report to the university.</p>
+<p><br /></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>AI-generated using GPT<br>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Minhyuk Sung
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
