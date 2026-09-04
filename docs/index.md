@@ -110,7 +110,8 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
         Ch. 3.2.1.1
       </td>
       <td>
-      <a href="{{ links.lec02 }}" target="_blank" rel="noopener noreferrer">Slides</a>
+      <a href="{{ links.lec02 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec02 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
 
