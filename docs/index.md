@@ -120,7 +120,9 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Sep 07</td>
       <td><strong>Autoregressive Models</strong></td>
       <td>Ch. 22.1–22.4</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec03 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Sep 09</td>
