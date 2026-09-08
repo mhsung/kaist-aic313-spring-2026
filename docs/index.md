@@ -129,7 +129,9 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Sep 09</td>
       <td><strong>Variational Autoencoders 1</strong></td>
       <td>Ch. 21.1–21.2.2</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec04 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
 
     <tr>
@@ -255,38 +257,36 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
     </tr>
     <tr>
       <td>Nov 11</td>
-      <td><mark><strong>FastGen Recap / CreativeGen</strong></mark></td>
-      <td>
-      </td>
+      <td><strong>Flow Matching 2</strong></td>
+      <td></td>
       <td></td>
     </tr>
 
     <tr>
       <td rowspan="2" align="center">12</td>
       <td>Nov 16</td>
-      <td><strong>Flow Matching 2</strong></td>
+      <td><mark><strong>FastGen Recap / CreativeGen</strong></mark></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Nov 18</td>
-      <td><strong>Inference-Time Guidance</strong></td>
-      <td>
-      </td>
+      <td><strong>Guest Lecture 1</strong></td>
+      <td></td>
       <td></td>
     </tr>
 
     <tr>
       <td rowspan="2" align="center">13</td>
       <td>Nov 23</td>
-      <td><strong>Discrete Diffusion</strong></td>
+      <td><strong>Inference-Time Scaling</strong></td>
       <td>
       </td>
       <td></td>
     </tr>
     <tr>
       <td>Nov 25</td>
-      <td><strong>Course Wrap-Up</strong></td>
+      <td><strong>Recent Topics / Course Wrap-Up</strong></td>
       <td>
       </td>
       <td></td>
@@ -295,13 +295,13 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
     <tr>
       <td rowspan="2" align="center">14</td>
       <td>Nov 30</td>
-      <td><strong>Guest Lecture 1</strong></td>
+      <td><strong>Guest Lecture 2</strong></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Dec 02</td>
-      <td><strong>Guest Lecture 2</strong></td>
+      <td><strong>Guest Lecture 3</strong></td>
       <td></td>
       <td></td>
     </tr>
