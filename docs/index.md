@@ -272,7 +272,11 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
     </tr>
     <tr>
       <td>Nov 18</td>
-      <td><strong>Guest Lecture 1</strong></td>
+      <td>
+      <strong>Guest Lecture 1: <a href="https://jiaxins.io/" target="_blank" rel="noopener noreferrer">Jiaxin Shi</a></strong><br>
+      Meta SuperIntelligence Labs<br>
+      Discrete Diffusion
+      </td>
       <td></td>
       <td></td>
     </tr>
@@ -296,13 +300,21 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
     <tr>
       <td rowspan="2" align="center">14</td>
       <td>Nov 30</td>
-      <td><strong>Guest Lecture 2</strong></td>
+      <td>
+      <strong>Guest Lecture 2: <a href="https://sites.google.com/view/aipdlab/home/people/pi" target="_blank" rel="noopener noreferrer">Gyu Rie Lee</a></strong><br>
+      KAIST<br>
+      Generative Protein Design
+      </td>
       <td></td>
       <td></td>
     </tr>
     <tr>
       <td>Dec 02</td>
-      <td><strong>Guest Lecture 3</strong></td>
+      <td>
+      <strong>Guest Lecture 3: <a href="https://jberner.info/" target="_blank" rel="noopener noreferrer">Julius Berner</a></strong><br>
+      NVIDIA<br>
+      Fast Video Generation
+      </td>
       <td></td>
       <td></td>
     </tr>
