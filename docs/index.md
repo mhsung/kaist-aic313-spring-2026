@@ -140,7 +140,9 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Sep 14</td>
       <td><strong>Variational Autoencoders 2</strong></td>
       <td>Ch. 21.2.3–21.2.4</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec05 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Sep 16</td>
