@@ -142,13 +142,16 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Ch. 21.2.3–21.2.4</td>
       <td>
       <a href="{{ links.lec05 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec05 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
     <tr>
       <td>Sep 16</td>
       <td><strong>Normalizing Flows 1</strong></td>
-      <td>Ch. 23.1–23.2.3</td>
-      <td></td>
+      <td>Ch. 23.1–23.2.2</td>
+      <td>
+      <a href="{{ links.lec06 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
 
     <tr>
@@ -169,7 +172,7 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td rowspan="2" align="center">5</td>
       <td>Sep 28</td>
       <td><strong>Normalizing Flows 2</strong></td>
-      <td>Ch. 23.2.4 and 23.3</td>
+      <td>Ch. 23.2.3-23.2.4 and 23.3</td>
       <td></td>
     </tr>
     <tr>
