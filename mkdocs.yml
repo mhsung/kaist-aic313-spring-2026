@@ -38,7 +38,7 @@ copyright: Copyright &copy; 2026 Minhyuk Sung
 
 nav:
   - Home: index.md
-  - FastGen: fastgen.md
+  - FastGen Challenge: fastgen.md
 
 extra:
   analytics:
@@ -58,4 +58,4 @@ extra:
     rec06: https://youtu.be/CM-Mz2P73y8
     zoom: https://kaist.zoom.us/j/85365206376
     fastgen_repo: https://github.com/KAIST-Visual-AI-Group/AIC313-Project-FastGen
-    fastgen_slides: "#"  # TODO: replace with the FastGen introduction slides link
+    fastgen_slides: https://onedrive.live.com/?id=60562023B6640282%21s893bc88130964c8a904b61883f0595b9&cid=60562023B6640282&redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy82MDU2MjAyM2I2NjQwMjgyL0lRQ0J5RHVKbGpDS1RKQkxZWWdfQlpXNUFRdWg0T01kY25ocG9xcHA3eHZEakZvP2U9bFZPRWYz&parId=60562023B6640282%21s961bab5d4e614f89b36b346c3fdbc9ab&o=OneUp

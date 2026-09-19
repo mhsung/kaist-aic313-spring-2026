@@ -64,7 +64,7 @@ We will mainly use selected material from **Part I: Fundamentals** and **Part IV
 ## Grading
 - Participation & Quizzes: 15%
 - Exams: 45%
-- FastGen Challenge: 20%
+- [FastGen Challenge](fastgen.md){:target="_blank"}: 20%
 - CreativeGen Challenge: 20%
 
 
@@ -74,7 +74,8 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
 (Subject to Change)  
 
 - Project Team Sign-Up: ==Due Sep 28 (Mon)==  
-- FastGen Challenge Submission: ==Due Nov 14 (Sat)== 
+- FastGen Challenge Mid-Term Evaluation (Optional): ==Due Oct 31 (Sat)==  
+- FastGen Challenge Submission: ==Due Nov 07 (Sat)== 
 - CreativeGen Challenge Submission: ==Due Dec 05 (Sat)== 
 
 
