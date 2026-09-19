@@ -1,0 +1,964 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Minhyuk Sung">
+      
+      
+        <link rel="canonical" href="https://diffusion.kaist.ac.kr/fastgen/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>FastGen Challenge - AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-1VHYJZSMF1"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-1VHYJZSMF1",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-1VHYJZSMF1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aic313cs378-introduction-to-generative-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" class="md-header__button md-logo" aria-label="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FastGen Challenge
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FastGen Challenge
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" class="md-nav__button md-logo" aria-label="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FastGen Challenge
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FastGen Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fastgen-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastGen Challenge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FastGen Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codebase-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codebase Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mid-term-evaluation-submission-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mid-Term Evaluation Submission (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Submission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-evaluation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Evaluation Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compute-resources-kcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute Resources (KCLOUD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Readings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fastgen-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FastGen Challenge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FastGen Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codebase-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codebase Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mid-term-evaluation-submission-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mid-Term Evaluation Submission (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Submission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#self-evaluation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Evaluation Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compute-resources-kcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute Resources (KCLOUD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Readings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="aic313cs378-introduction-to-generative-models">AIC313/CS378: Introduction to Generative Models</h1>
+<h3><b>
+<a href="http://mhsung.github.io/" target="_blank">Minhyuk Sung</a>, <a href="https://www.kaist.ac.kr/" target="_blank">KAIST</a>, Fall 2026
+</b></h3>
+
+<h2 id="fastgen-challenge">FastGen Challenge</h2>
+<p><ins><strong>Mid-Term Evaluation Submission Due (Optional)</strong></ins>: <mark>October 31 (Saturday), 23:59 KST</mark><br />
+<ins><strong>Final Submission Due</strong></ins>: <mark>November 7 (Saturday), 23:59 KST</mark><br />
+<ins><strong>Where to submit</strong></ins>: <mark>KLMS</mark>  </p>
+<p><a class="md-button" href="https://onedrive.live.com/?id=60562023B6640282%21s893bc88130964c8a904b61883f0595b9&amp;cid=60562023B6640282&amp;redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy82MDU2MjAyM2I2NjQwMjgyL0lRQ0J5RHVKbGpDS1RKQkxZWWdfQlpXNUFRdWg0T01kY25ocG9xcHA3eHZEakZvP2U9bFZPRWYz&amp;parId=60562023B6640282%21s961bab5d4e614f89b36b346c3fdbc9ab&amp;o=OneUp" target="_blank">Introduction Slides</a>
+<a class="md-button" href="https://github.com/KAIST-Visual-AI-Group/AIC313-Project-FastGen" target="_blank">Base Code</a></p>
+<h3 id="goal">Goal</h3>
+<p><strong>TL;DR: Your goal is to generate Pokemon images FAST!</strong></p>
+<p>In this challenge, you will implement and train your own <strong>image generation models</strong>. The goal is to achieve <strong>high-quality image generation with only a few sampling steps</strong>. You are encouraged to explore advanced techniques for few-step generation.</p>
+<h3 id="what-to-do">What to Do</h3>
+<p>We provide the <strong>model skeleton code</strong> and the <strong>evaluation code</strong>. Your goal is to <strong>design and implement your own image generation models</strong>, including:</p>
+<ul>
+<li><strong>Few-step generation framework</strong>: Use an existing framework or design your own generative model.</li>
+<li><strong>Model architecture</strong>: Design an effective model backbone.</li>
+<li><strong>Other training details</strong>: Choose data augmentation, learning rate, optimizer, and other training settings.</li>
+</ul>
+<p>Specifically, your tasks are as follows:</p>
+<ol>
+<li>
+<p><strong>Implementing Your Own Models</strong></p>
+<ul>
+<li>You may modify the provided code (<code>model.py</code>) and add new files if necessary.</li>
+<li>You must implement the <strong>following two models</strong> used by the evaluation code:<ul>
+<li><code>class ModelOneNFE(Model)</code>: Model for 1-NFE generation</li>
+<li><code>class ModelFewNFE(Model)</code>: Model for few-NFE generation</li>
+</ul>
+</li>
+<li><strong>DO NOT</strong> modify the base class <code>class Model(nn.Module)</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Training the Models</strong></p>
+<ul>
+<li>You may freely use your own training pipeline, including model training and dataset preparation.</li>
+<li>You may train the two models (<code>ModelOneNFE</code> and <code>ModelFewNFE</code>) separately or let them share weights. You may also train auxiliary networks (e.g., a teacher model for distillation) from scratch, as long as they are not used at sampling time.</li>
+<li>You can design your own model, but there are some restrictions:<ul>
+<li>Each model must have fewer than <strong>100M parameters</strong>.<ul>
+<li>Parameters are counted with the provided utility in <code>src/utils.py</code> on the model as loaded for sampling. Every learned network used at sampling time counts toward this budget; networks used only during training (e.g., a teacher) do not.</li>
+</ul>
+</li>
+<li>The peak VRAM while training the model must be less than <strong>20 GB</strong> (the size of the vGPU provided through KCLOUD).</li>
+<li>The use of any pretrained model is <strong>prohibited</strong>. Everything must be trained from scratch on the provided training split. (The Inception network inside the provided FID evaluation code is the only exception.)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Sampling Images</strong></p>
+<ul>
+<li>You should implement the <code>Model.sample()</code> method inside <code>model.py</code> for each model within the pre-defined NFE limit.<ul>
+<li><code>ModelOneNFE.sample()</code> must use exactly <strong>1 NFE</strong>.</li>
+<li><code>ModelFewNFE.sample()</code> may use <strong>any number of NFEs up to 4</strong> (i.e., 2, 3, or 4).</li>
+</ul>
+</li>
+<li><strong>NFE</strong>: Number of Function Evaluations (= Sampling Steps).<ul>
+<li>Any execution of <strong>any part of the trained model backbone</strong> counts as 1 NFE.</li>
+<li>Any other learned network evaluated during sampling (e.g., a refiner or decoder) also counts as 1 NFE per evaluation, and its parameters count toward the 60M budget.</li>
+</ul>
+</li>
+<li>Check out the <a href="#recommended-readings">Recommended Readings</a> section, but you are <em>not</em> limited to implementing one of the algorithms introduced in those papers; they are provided only as references.</li>
+</ul>
+</li>
+</ol>
+<p><strong><mark>Important Notes</mark></strong></p>
+<p><ins>PLEASE READ THE FOLLOWING CAREFULLY! Any violation of the rules or failure to properly cite existing code, models, or papers used in the project in your write-up will result in a zero score.</ins></p>
+<ul>
+<li><strong>DO NOT</strong> use any pretrained model. You must train the model from scratch.  </li>
+<li><strong>DO NOT</strong> modify the provided files marked as <code>DO NOT modify</code> in the <a href="#codebase-structure">Codebase Structure</a> (<code>dataset.py</code>, <code>download_dataset.py</code>, <code>evaluate.py</code>, <code>src/utils.py</code>, and the data split files). These are kept fixed to ensure consistent evaluation across all submissions.  </li>
+<li><strong>DO NOT</strong> modify <code>class Model(nn.Module)</code> in <code>model.py</code>.  </li>
+<li><strong>DO NOT</strong> use the validation split for training. Only the training split is allowed for training your model. TAs may inspect your training code and data pipeline to verify this.  </li>
+<li>You are allowed to use open-source implementations, as long as they are <strong>clearly mentioned and cited</strong> in your write-up.  </li>
+</ul>
+<h3 id="dataset">Dataset</h3>
+<p>You are required to use the <a href="https://www.kaggle.com/datasets/bhawks/pokemon-generation-one-22k" target="_blank">Pokemon Generation One</a> image dataset for training and evaluation. It consists of 20,099 images across 151 Pokemon categories.</p>
+<p><img alt="Dataset" src="../assets/pokemon.png" width="80%" /></p>
+<ul>
+<li>We will provide the <strong>training / validation split</strong> for the dataset.<ul>
+<li>Training set: 17,079 images</li>
+<li>Validation set: 151 categories × 20 = 3,020 images</li>
+</ul>
+</li>
+<li>You are only allowed to use the <strong>training split</strong> for training your model. The <strong>validation split</strong> will be used for the evaluation.</li>
+<li>We use <strong>64×64</strong> down-sampled images for computation efficiency.</li>
+</ul>
+<p><strong>You do not need to download the dataset yourself.</strong> The base code includes a script (<code>download_dataset.py</code>) that automatically downloads the dataset.</p>
+<h3 id="codebase-structure">Codebase Structure</h3>
+<pre><code>AIC313-Project-FastGen/
+├── model.py                      # NFE-specific model classes (students SHOULD modify subclasses)
+├── dataset.py                    # Pokemon dataset and DataLoader API (provided, DO NOT modify)
+├── download_dataset.py           # Kaggle dataset download utility (provided, DO NOT modify)
+├── evaluate.py                   # Sample generation and FID evaluation (provided, DO NOT modify)
+├── src/
+│   ├── __init__.py
+│   └── utils.py                  # Parameter counting utilities (provided, DO NOT modify)
+└── data/
+    └── pokemon-generation-one-22k/
+        ├── train_split.txt       # Fixed training split (provided, DO NOT modify)
+        ├── val_split.txt         # Fixed validation split (provided, DO NOT modify)
+        └── category_to_id.json   # Fixed category-to-ID mapping (provided, DO NOT modify)
+</code></pre>
+<ul>
+<li><strong>DO NOT modify</strong>: Files that must be kept as-is (for fair comparison).</li>
+<li><strong>SHOULD modify</strong>: Main files for implementing your solution (<code>model.py</code>).</li>
+<li>You are also free to add your own files and codes. Note that the base code does <strong>not</strong> include a training script, so you should write your own (e.g., <code>train.py</code>).</li>
+<li>Use the TA-provided <code>requirements.txt</code> as the reference for the TAs' evaluation environment. If your code needs additional packages, list them in the <code>requirements.txt</code> of your submission.</li>
+</ul>
+<p>Further details are provided in the <code>README.md</code> of the <a href="https://github.com/KAIST-Visual-AI-Group/AIC313-Project-FastGen" target="_blank">base code</a>.</p>
+<h3 id="evaluation">Evaluation</h3>
+<p>This is a <strong>team-based competition</strong>. The performance of your image generative models will be evaluated quantitatively using <a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance" target="_blank">Fréchet Inception Distance (FID)</a> scores at <strong>NFE = 1</strong> and <strong>NFE ≤ 4</strong>. The <strong>validation split</strong> will be used as the reference set for FID.</p>
+<ul>
+<li>You may compute FID yourself, but <strong>TA-measured scores are official</strong>.</li>
+<li>TAs will run your code <strong>as-is</strong> in their environment. Submissions that fail to run are scored as zero for the corresponding metric.</li>
+<li>Mid-term evaluation results will be published on the leaderboard.</li>
+<li>At the mid-term evaluation, the <strong>top-1 submission above the TAs' result earns bonus credit</strong>.</li>
+</ul>
+<p><strong>Final grading will be determined relative to the best score achieved for each metric.</strong> You can get up to <strong>20 points</strong> from the FastGen project: up to <strong>10 points for one-NFE</strong> and <strong>10 points for few-NFE</strong>. For each NFE setting, points are assigned as follows:</p>
+<div class="arithmatex">\[
+\text{Score} = \max\left(\frac{\text{TA's FID} - \text{Your FID}}{\text{TA's FID} - \text{Lowest FID}} \times 3.5 + 5,\; 0\right)
+\]</div>
+<p><strong>Bonus points</strong></p>
+<table>
+<thead>
+<tr>
+<th>When</th>
+<th>Team</th>
+<th>Bonus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mid-term evaluation</td>
+<td>1st</td>
+<td>+0.5</td>
+</tr>
+<tr>
+<td>Final evaluation</td>
+<td>1st</td>
+<td>+1.0</td>
+</tr>
+<tr>
+<td>Final evaluation</td>
+<td>2nd, 3rd</td>
+<td>+0.5</td>
+</tr>
+</tbody>
+</table>
+<p>At the final evaluation, the <strong>top three teams for each evaluation setting</strong> receive bonus points. <ins>Teams receiving bonus points in the final evaluation must present their work in class on <mark>November 16 (Monday)</mark> to receive them.</ins></p>
+<h3 id="mid-term-evaluation-submission-optional">Mid-Term Evaluation Submission (Optional)</h3>
+<p>The purpose of the mid-term evaluation is to provide feedback on your team's standing relative to other teams. <strong>Participation is optional</strong>, but the <strong>top-1</strong> submission that outperforms the TA baseline will earn <strong>bonus credit</strong> toward the final grade.</p>
+<ul>
+<li><strong>Due</strong>: <mark>October 31 (Saturday), 23:59 KST</mark> (one week before the final submission)</li>
+<li><strong>What to submit</strong><ol>
+<li><strong>Self-contained source code</strong> <ul>
+<li>Your submission must include the complete codebase.</li>
+<li>TAs will run your code in their environment with no changes.</li>
+</ul>
+</li>
+<li><strong>Model checkpoints</strong>  <ul>
+<li>Checkpoint path: <code>./checkpoints/one_nfe.ckpt</code> and <code>./checkpoints/few_nfe.ckpt</code></li>
+<li><ins>TAs will load them from these paths. Different paths will be FAILED.</ins></li>
+<li>If your model needs any configuration files to be loaded (e.g., architecture hyperparameters), include them in the submission and make sure <code>model.py</code> reads them without any manual step.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>Evaluation</strong><ul>
+<li>The FID results will be published on the leaderboard.</li>
+<li>We will provide the TAs' FID scores as a baseline.</li>
+<li>The top-1 submission that outperforms the TA baseline will earn bonus credit.  </li>
+</ul>
+</li>
+</ul>
+<p><strong>Example of Mid-Term Submission</strong></p>
+<pre><code>team_{team-id:0&gt;2}/           # e.g. team_02
+├── model.py                  # ModelOneNFE, ModelFewNFE, and Model
+├── dataset.py                # Provided dataset/DataLoader interface
+├── download_dataset.py       # Provided dataset downloader
+├── evaluate.py               # Provided evaluation entry point
+├── src/
+│   ├── __init__.py
+│   └── utils.py              # Provided parameter-counting utilities
+├── requirements.txt
+├── checkpoints/
+│   ├── one_nfe.ckpt          # REQUIRED
+│   └── few_nfe.ckpt          # REQUIRED
+└── &lt;all additional files&gt;    # Include every file you implemented (e.g., your training script)
+</code></pre>
+<h3 id="final-submission">Final Submission</h3>
+<ul>
+<li><strong>Due</strong>: <mark>November 7 (Saturday), 23:59 KST</mark></li>
+<li><strong>What to submit</strong>:<ol>
+<li><strong>Self-contained source code</strong> (same as the mid-term evaluation submission)</li>
+<li><strong>Model checkpoints</strong> (same as the mid-term evaluation submission)</li>
+<li><strong>2-page write-up</strong><ul>
+<li>No template provided.  </li>
+<li>Maximum of two A4 pages, excluding references.  </li>
+<li>All of the following must be included:<ul>
+<li><strong>Technical details</strong>: A one-paragraph description of your few-step generation implementation.</li>
+<li><strong>Training details</strong>: Training logs (e.g., training loss curves), and total training time.</li>
+<li><strong>Qualitative evidence</strong>: 8 sample images from the early training phases.  </li>
+<li><strong>Citations</strong>: All external code and papers used must be properly cited.</li>
+</ul>
+</li>
+<li><ins>Missing any of these items will result in a penalty.</ins></li>
+<li><ins>If the write-up exceeds two pages, any content beyond the second page will be ignored, which may lead to missing required items.</ins></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>Bonus</strong>: The top three teams for each evaluation setting receive bonus points (see <a href="#evaluation">Evaluation</a>). <ins>Teams receiving bonus points must present their work in class on <mark>November 16 (Monday)</mark>.</ins></li>
+</ul>
+<h3 id="self-evaluation-checklist">Self-Evaluation Checklist</h3>
+<p>Before submitting, please check the following:</p>
+<ul>
+<li>[ ] Use the TA-provided <code>requirements.txt</code> to check compatibility.</li>
+<li>[ ] Each model has fewer than 100M parameters (check with <code>src/utils.py</code>).</li>
+<li>[ ] Code runs end-to-end (Train → Sample → Evaluate) without errors.</li>
+<li>[ ] Both checkpoint paths are correct (<code>./checkpoints/one_nfe.ckpt</code>, <code>./checkpoints/few_nfe.ckpt</code>).</li>
+<li>[ ] Citations are ready: all external code/papers are cited in the final write-up.</li>
+</ul>
+<h3 id="compute-resources-kcloud">Compute Resources (KCLOUD)</h3>
+<ul>
+<li>We provide each student with a <strong>20GB NVIDIA A100 vGPU</strong> through <strong>KCLOUD</strong>.</li>
+<li>The information required to access KCLOUD has been sent to each student <strong>via email</strong>.</li>
+<li>You should connect to the provided instance <strong>after establishing a connection to SSLVPN (KCloudVPN)</strong>.<ul>
+<li><strong>macOS</strong>: Download and install the client from <a href="https://apple.secuwiz.co.kr/u20_mac_down.html" target="_blank">apple.secuwiz.co.kr/u20_mac_down.html</a>, enter <code>https://kcloudvpn.kaist.ac.kr</code> in the URL field, and log in with your KAIST ID / PW.</li>
+<li><strong>Windows</strong>: Open <a href="https://kcloudvpn.kaist.ac.kr" target="_blank">https://kcloudvpn.kaist.ac.kr</a> (or <code>https://192.249.18.254</code>) in your browser, download and install the client, re-open the browser, and log in with your KAIST ID / PW.</li>
+</ul>
+</li>
+<li>After the VPN connection is established, connect to your VM via SSH using the NAT IP and the password given in the email.</li>
+</ul>
+<h3 id="grading">Grading</h3>
+<p><ins><strong>There is no late day. Submit on time.</strong></ins><br />
+<strong>Late submission</strong>: <mark>Zero score</mark>.<br />
+<strong>Missing any required item in the final submission (code, checkpoints, write-up)</strong>: <mark>Zero score</mark>.<br />
+<strong>Missing items in the write-up</strong>: <mark>10% penalty per missing item</mark>.  </p>
+<h3 id="recommended-readings">Recommended Readings</h3>
+<p>[1]  <a href="https://arxiv.org/abs/2303.01469" target="_blank">Song et al., Consistency Models, ICML 2023.</a><br />
+[2]  <a href="https://arxiv.org/abs/2310.02279" target="_blank">Kim et al., Consistency Trajectory Models: Learning Probability Flow ODE Trajectory of Diffusion, ICLR 2024.</a><br />
+[3]  <a href="https://arxiv.org/abs/2209.03003" target="_blank">Liu et al., Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow, ICLR 2023.</a><br />
+[4]  <a href="https://arxiv.org/abs/2410.12557" target="_blank">Frans et al., One Step Diffusion via Shortcut Models, ICLR 2025.</a><br />
+[5]  <a href="https://arxiv.org/abs/2405.15506" target="_blank">Tong et al., Learning to Discretize Denoising Diffusion ODEs, ICLR 2025.</a>  </p>
+<p><br /></p>
+<p><a href="#">Back to top</a>
+<br /></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Minhyuk Sung
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
