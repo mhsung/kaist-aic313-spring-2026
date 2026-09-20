@@ -58,7 +58,7 @@ Specifically, your tasks are as follows:
         - `ModelFewNFE.sample()` may use **any number of NFEs up to 4** (i.e., 2, 3, or 4).
     - **NFE**: Number of Function Evaluations (= Sampling Steps).
         - Any execution of **any part of the trained model backbone** counts as 1 NFE.
-        - Any other learned network evaluated during sampling (e.g., a refiner or decoder) also counts as 1 NFE per evaluation, and its parameters count toward the 60M budget.
+        - Any other learned network evaluated during sampling (e.g., a refiner or decoder) also counts as 1 NFE per evaluation, and its parameters count toward the 100M budget.
     - Check out the [Recommended Readings](#recommended-readings) section, but you are _not_ limited to implementing one of the algorithms introduced in those papers; they are provided only as references.
 
 
@@ -66,11 +66,22 @@ Specifically, your tasks are as follows:
 
 ^^PLEASE READ THE FOLLOWING CAREFULLY! Any violation of the rules or failure to properly cite existing code, models, or papers used in the project in your write-up will result in a zero score.^^
 
-- **DO NOT** use any pretrained model. You must train the model from scratch.  
+**What you ==CANNOT== do**
+
+- **DO NOT** use any pretrained model. You must train both submitted models from scratch.  
+- **DO NOT** modify `class Model(nn.Module)` in `model.py`. Its checkpoint-loading and parameter-counting utilities are fixed for consistent evaluation.  
 - **DO NOT** modify the provided files marked as `DO NOT modify` in the [Codebase Structure](#codebase-structure) (`dataset.py`, `download_dataset.py`, `evaluate.py`, `src/utils.py`, and the data split files). These are kept fixed to ensure consistent evaluation across all submissions.  
-- **DO NOT** modify `class Model(nn.Module)` in `model.py`.  
-- **DO NOT** use the validation split for training. Only the training split is allowed for training your model. TAs may inspect your training code and data pipeline to verify this.  
-- You are allowed to use open-source implementations, as long as they are **clearly mentioned and cited** in your write-up.  
+- **DO NOT** use the validation split for training. Only the images listed in `train_split.txt` may be used for training, distillation, or hyper-parameter selection; the validation split is the FID reference set. TAs may inspect your training code and data pipeline to verify this.  
+- **DO NOT** exceed **100M parameters** per model. `ModelOneNFE` and `ModelFewNFE` each get their own 100M budget, counted over every module registered on the model as loaded for sampling (frozen parameters included, buffers excluded). A model above the limit is **not evaluated** and scores zero for that NFE mode; the other mode is scored independently.  
+- **DO NOT** exceed **20 GB of peak training VRAM**. Each model must train within a single 20 GB GPU, matching the NVIDIA A100 vGPU provided for this course. Measure with `torch.cuda.max_memory_allocated()`.  
+- **DO NOT** rely on libraries installed by hand. Your code runs in the TA environment with the provided dependencies only. If an extra package is essential, list it in your `requirements.txt` and announce it through the course communication channel.  
+
+**What you ==CAN== do**
+
+- **Modify `model.py`**: implement `ModelOneNFE`, `ModelFewNFE`, their architectures, objectives, and `sample()` methods.  
+- **Add your own training script** with optimizers, LR schedulers, model-specific arguments, and checkpoint saving. The base code ships no training script.  
+- **Create new files** required by your models or training procedure, and include every one of them in the submission.  
+- **Use open-source implementations**, as long as they are **clearly mentioned and cited** in your write-up.  
 
 
 ### Dataset
@@ -128,6 +139,15 @@ This is a **team-based competition**. The performance of your image generative m
 $$
 \text{Score} = \max\left(\frac{\text{TA's FID} - \text{Your FID}}{\text{TA's FID} - \text{Lowest FID}} \times 3.5 + 5,\; 0\right)
 $$
+
+**TAs' reference FID scores** (the baseline in the formula above):
+
+| Setting | TAs' FID |
+| --- | --- |
+| 1-NFE | **39.15** |
+| Few-NFE (≤ 4) | **30.90** |
+
+^^These scores will be updated after the mid-term evaluation submission date.^^
 
 **Bonus points**
 
@@ -204,15 +224,6 @@ Before submitting, please check the following:
 - [ ] Citations are ready: all external code/papers are cited in the final write-up.
 
 
-### Compute Resources (KCLOUD)
-- We provide each student with a **20GB NVIDIA A100 vGPU** through **KCLOUD**.
-- The information required to access KCLOUD has been sent to each student **via email**.
-- You should connect to the provided instance **after establishing a connection to SSLVPN (KCloudVPN)**.
-    - **macOS**: Download and install the client from [apple.secuwiz.co.kr/u20_mac_down.html](https://apple.secuwiz.co.kr/u20_mac_down.html){:target="_blank"}, enter `https://kcloudvpn.kaist.ac.kr` in the URL field, and log in with your KAIST ID / PW.
-    - **Windows**: Open [https://kcloudvpn.kaist.ac.kr](https://kcloudvpn.kaist.ac.kr){:target="_blank"} (or `https://192.249.18.254`) in your browser, download and install the client, re-open the browser, and log in with your KAIST ID / PW.
-- After the VPN connection is established, connect to your VM via SSH using the NAT IP and the password given in the email.
-
-
 ### Grading
 ^^**There is no late day. Submit on time.**^^  
 **Late submission**: ==Zero score==.  
@@ -221,11 +232,19 @@ Before submitting, please check the following:
 
 
 ### Recommended Readings
-[1]  [Song et al., Consistency Models, ICML 2023.](https://arxiv.org/abs/2303.01469){:target="_blank"}  
-[2]  [Kim et al., Consistency Trajectory Models: Learning Probability Flow ODE Trajectory of Diffusion, ICLR 2024.](https://arxiv.org/abs/2310.02279){:target="_blank"}  
-[3]  [Liu et al., Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow, ICLR 2023.](https://arxiv.org/abs/2209.03003){:target="_blank"}  
-[4]  [Frans et al., One Step Diffusion via Shortcut Models, ICLR 2025.](https://arxiv.org/abs/2410.12557){:target="_blank"}  
-[5]  [Tong et al., Learning to Discretize Denoising Diffusion ODEs, ICLR 2025.](https://arxiv.org/abs/2405.15506){:target="_blank"}  
+[1]  [Kingma and Welling, Auto-Encoding Variational Bayes, ICLR 2014.](https://arxiv.org/abs/1312.6114){:target="_blank"}  
+[2]  [Dinh et al., NICE: Non-linear Independent Components Estimation, 2015.](https://arxiv.org/abs/1410.8516){:target="_blank"}  
+[3]  [Goodfellow et al., Generative Adversarial Nets, NeurIPS 2014.](https://arxiv.org/abs/1406.2661){:target="_blank"}  
+[4]  [Ho et al., Denoising Diffusion Probabilistic Models, NeurIPS 2020.](https://arxiv.org/abs/2006.11239){:target="_blank"}  
+[5]  [Lipman et al., Flow Matching for Generative Modeling, ICLR 2023.](https://arxiv.org/abs/2210.02747){:target="_blank"}  
+[6]  [Liu et al., Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow, ICLR 2023.](https://arxiv.org/abs/2209.03003){:target="_blank"}  
+[7]  [Salimans and Ho, Progressive Distillation for Fast Sampling of Diffusion Models, ICLR 2022.](https://arxiv.org/abs/2202.00512){:target="_blank"}  
+[8]  [Song et al., Consistency Models, ICML 2023.](https://arxiv.org/abs/2303.01469){:target="_blank"}  
+[9]  [Kim et al., Consistency Trajectory Models: Learning Probability Flow ODE Trajectory of Diffusion, ICLR 2024.](https://arxiv.org/abs/2310.02279){:target="_blank"}  
+[10] [Yin et al., One-step Diffusion with Distribution Matching Distillation, CVPR 2024.](https://arxiv.org/abs/2311.18828){:target="_blank"}  
+[11] [Frans et al., One Step Diffusion via Shortcut Models, ICLR 2025.](https://arxiv.org/abs/2410.12557){:target="_blank"}  
+[12] [Tong et al., Learning to Discretize Denoising Diffusion ODEs, ICLR 2025.](https://arxiv.org/abs/2405.15506){:target="_blank"}  
+[13] [Min et al., BézierFlow: Learning Bézier Stochastic Interpolant Schedulers for Few-Step Generation, ICLR 2026.](https://arxiv.org/abs/2512.13255){:target="_blank"}  
 
 <br />
 
