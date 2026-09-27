@@ -175,7 +175,9 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Sep 28</td>
       <td><strong>Normalizing Flows 2</strong></td>
       <td>Ch. 23.2.3-23.2.4 and 23.3</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec07 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Sep 30</td>
