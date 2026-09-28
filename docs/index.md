@@ -177,6 +177,7 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Ch. 23.2.3-23.2.4 and 23.3</td>
       <td>
       <a href="{{ links.lec07 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec07 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
     <tr>
