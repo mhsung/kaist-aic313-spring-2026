@@ -80,7 +80,7 @@ Specifically, your tasks are as follows:
 - **DO NOT** use the validation split for training. Only the images listed in `train_split.txt` may be used for training, distillation, or hyper-parameter selection; the validation split is the FID reference set. TAs may inspect your training code and data pipeline to verify this.  
 - **DO NOT** exceed **100M parameters** per model. `ModelOneNFE` and `ModelFewNFE` each get their own 100M budget, counted over every module registered on the model as loaded for sampling (frozen parameters included, buffers excluded). A model above the limit is **not evaluated** and scores zero for that NFE mode; the other mode is scored independently.  
 - **DO NOT** exceed **20 GB of peak training VRAM**. Each model must train within a single 20 GB GPU, matching the NVIDIA A100 vGPU provided for this course. Measure with `torch.cuda.max_memory_allocated()`.  
-- **DO NOT** rely on libraries installed by hand. Your code runs in the TA environment with the provided dependencies only. If an extra package is essential, list it in your `requirements.txt` and announce it through the course communication channel.  
+- **DO NOT** rely on libraries installed manually. Your code must run in the TA environment using only the provided dependencies. If you need to use an additional package, you must first ask for approval in the #question channel on Slack and may use it only after it has been approved.
 
 **What you ==CAN== do**
 
