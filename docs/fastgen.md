@@ -47,8 +47,14 @@ Specifically, your tasks are as follows:
     - You may freely use your own training pipeline, including model training and dataset preparation.
     - You may train the two models (`ModelOneNFE` and `ModelFewNFE`) separately or let them share weights. You may also train auxiliary networks (e.g., a teacher model for distillation) from scratch, as long as they are not used at sampling time.
     - You can design your own model, but there are some restrictions:
-        - Each model must have fewer than **100M parameters**.
-            - Parameters are counted with the provided utility in `src/utils.py` on the model as loaded for sampling. Every learned network used at sampling time counts toward this budget; networks used only during training (e.g., a teacher) do not.
+        - Each learned model used during training or sampling must individually have no more than **100M parameters**.
+            - This limit applies to all learned models, including teacher models used only during training.
+            - The 100M limit is applied **separately to each model**. Parameter counts of different models (e.g., a teacher and a student) are **not summed together**.
+            - For each model, the parameter count refers to the **entire model framework, including all learnable components**, not only the main backbone.
+            - For example:
+                - Teacher ≤ 100M / Student ≤ 100M → **Allowed**
+                - Teacher > 100M / Student ≤ 100M → **Not Allowed**
+                - Teacher ≤ 100M / Student > 100M → **Not Allowed**
         - The peak VRAM while training the model must be less than **20 GB** (the size of the vGPU provided through KCLOUD).
         - The use of any pretrained model is **prohibited**. Everything must be trained from scratch on the provided training split. (The Inception network inside the provided FID evaluation code is the only exception.)
 
