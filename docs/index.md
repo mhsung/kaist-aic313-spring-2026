@@ -184,7 +184,10 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Sep 30</td>
       <td><strong>Generative Adversarial Networks</strong></td>
       <td>Ch. 26.1–26.3.3</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec08 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec08 }}" target="_blank" rel="noopener noreferrer">Recording</a>
+      </td>
     </tr>
 
     <tr>
