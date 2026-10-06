@@ -201,7 +201,9 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td>Oct 07</td>
       <td><strong>Energy-Based Models 1</strong></td>
       <td>Ch. 24.1–24.2</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec09 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
 
     <tr>
