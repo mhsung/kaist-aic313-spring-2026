@@ -199,7 +199,7 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
     </tr>
     <tr>
       <td>Oct 07</td>
-      <td><strong>Energy-Based Models 1</strong></td>
+      <td><strong>Energy-Based Models</strong></td>
       <td>Ch. 24.1–24.2</td>
       <td>
       <a href="{{ links.lec09 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
@@ -210,15 +210,17 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
     <tr>
       <td rowspan="2" align="center">7</td>
       <td>Oct 12</td>
-      <td><strong>Energy-Based Models 2</strong></td>
-      <td>Ch. 24.3–24.4</td>
+      <td><strong>Langevin Dynamics and the Fokker–Planck Equation</strong></td>
       <td></td>
+      <td>
+      <a href="{{ links.lec10 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Oct 14</td>
-      <td><strong>Midterm Wrap-Up</strong></td>
+      <td><strong>Score Matching</strong></td>
+      <td>Ch. 24.3.1–24.3.2</td>
       <td>
-      </td>
       <td></td>
     </tr>
 
