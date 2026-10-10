@@ -210,7 +210,7 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
     <tr>
       <td rowspan="2" align="center">7</td>
       <td>Oct 12</td>
-      <td><strong>Langevin Dynamics and the Fokker–Planck Equation</strong></td>
+      <td><strong>Langevin Dynamics and Fokker–Planck Equation</strong></td>
       <td></td>
       <td>
       <a href="{{ links.lec10 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
