@@ -218,8 +218,8 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
     </tr>
     <tr>
       <td>Oct 14</td>
-      <td><strong>Score Matching</strong></td>
-      <td>Ch. 24.3.1–24.3.2</td>
+      <td><strong>Midterm Wrap-Up</strong></td>
+      <td></td>
       <td>
       <td></td>
     </tr>
