@@ -78,6 +78,11 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
 - FastGen Challenge Submission: ==Due Nov 07 (Sat)== 
 - CreativeGen Challenge Submission: ==Due Dec 05 (Sat)== 
 
+Exam schedule:
+
+- Midterm Exam: ==Oct 21 (Wed), 10:10 a.m. - 11:50 a.m.==  
+- Final Exam: ==Dec 16 (Wed), 10:10 a.m. - 11:50 a.m.==  
+
 
 ## Schedule
 (Subject to Change) 
@@ -214,6 +219,7 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td></td>
       <td>
       <a href="{{ links.lec10 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec10 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
     <tr>
@@ -221,7 +227,9 @@ ALL ASSIGNMENTS ARE DUE 23:59 KST.
       <td><strong>Midterm Wrap-Up</strong></td>
       <td></td>
       <td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec11 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
 
     <tr>
