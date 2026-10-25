@@ -251,7 +251,9 @@ Exam schedule:
       <td>Oct 26</td>
       <td><strong>Diffusion Models 1</strong></td>
       <td>Ch. 25.1–25.2.2</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec12 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Oct 28</td>
