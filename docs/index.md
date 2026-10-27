@@ -253,13 +253,16 @@ Exam schedule:
       <td>Ch. 25.1–25.2.2</td>
       <td>
       <a href="{{ links.lec12 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec12 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
     <tr>
       <td>Oct 28</td>
       <td><strong>Diffusion Models 2</strong></td>
-      <td>Ch. 25.2.3–25.3.3</td>
-      <td></td>
+      <td>Ch. 25.2.3</td>
+      <td>
+      <a href="{{ links.lec13 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
 
     <tr>
