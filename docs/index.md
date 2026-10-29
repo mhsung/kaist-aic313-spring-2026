@@ -249,7 +249,7 @@ Exam schedule:
     <tr>
       <td rowspan="2" align="center">9</td>
       <td>Oct 26</td>
-      <td><strong>Diffusion Models 1</strong></td>
+      <td><strong>Denoising Diffusion Probabilistic Models 1</strong></td>
       <td>Ch. 25.1–25.2.2</td>
       <td>
       <a href="{{ links.lec12 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
@@ -258,10 +258,11 @@ Exam schedule:
     </tr>
     <tr>
       <td>Oct 28</td>
-      <td><strong>Diffusion Models 2</strong></td>
+      <td><strong>Denoising Diffusion Probabilistic Models 2</strong></td>
       <td>Ch. 25.2.3</td>
       <td>
       <a href="{{ links.lec13 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec13 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
 
