@@ -269,36 +269,39 @@ Exam schedule:
     <tr>
       <td rowspan="2" align="center">10</td>
       <td>Nov 02</td>
-      <td><strong>Diffusion Models 3</strong></td>
-      <td>Ch. 25.4–25.5.3</td>
-      <td></td>
+      <td><strong>Score Matching and Diffusion Models</strong></td>
+      <td>Ch. 24.3.1–24.3.2, 25.3</td>
+      <td>
+      <a href="{{ links.lec14 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Nov 04</td>
-      <td><strong>Conditional Generation / Latent Diffusion</strong></td>
-      <td>Ch. 25.5.4 and 25.6</td>
+      <td><strong>Denoising Diffusion Implicit Model</strong></td>
+      <td>Ch. 25.5.1</td>
       <td></td>
     </tr>
 
     <tr>
       <td rowspan="2" align="center">11</td>
       <td>Nov 09</td>
-      <td><strong>Flow Matching 1</strong></td>
+      <td><strong>Continuous-Time Diffusion: SDE / PF-ODE</strong></td>
       <td>
-        Ch. 23.2.6 and 25.4</td>
+        Ch. 25.4.1–25.4.4</td>
       <td></td>
     </tr>
     <tr>
       <td>Nov 11</td>
-      <td><strong>Flow Matching 2</strong></td>
-      <td></td>
+      <td><strong>Flow Matching</strong></td>
+      <td>
+        Ch. 23.2.6, 25.4.7</td>
       <td></td>
     </tr>
 
     <tr>
       <td rowspan="2" align="center">12</td>
       <td>Nov 16</td>
-      <td><mark><strong>FastGen Recap / CreativeGen</strong></mark></td>
+      <td><strong>Conditional Generation / Latent Diffusion<br><mark>CreativeGen Session</mark></strong></td>
       <td></td>
       <td></td>
     </tr>
