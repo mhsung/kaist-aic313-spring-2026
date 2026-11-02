@@ -273,6 +273,7 @@ Exam schedule:
       <td>Ch. 24.3.1–24.3.2, 25.3</td>
       <td>
       <a href="{{ links.lec14 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec14 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
     <tr>
@@ -285,14 +286,14 @@ Exam schedule:
     <tr>
       <td rowspan="2" align="center">11</td>
       <td>Nov 09</td>
-      <td><strong>Continuous-Time Diffusion: SDE / PF-ODE</strong></td>
+      <td><strong>Conditional Generation / Latent Diffusion<br><mark>CreativeGen Session</mark></strong></td>
       <td>
         Ch. 25.4.1–25.4.4</td>
       <td></td>
     </tr>
     <tr>
       <td>Nov 11</td>
-      <td><strong>Flow Matching</strong></td>
+      <td><strong>Continuous-Time Diffusion: SDE / PF-ODE</strong></td>
       <td>
         Ch. 23.2.6, 25.4.7</td>
       <td></td>
@@ -301,7 +302,7 @@ Exam schedule:
     <tr>
       <td rowspan="2" align="center">12</td>
       <td>Nov 16</td>
-      <td><strong>Conditional Generation / Latent Diffusion<br><mark>CreativeGen Session</mark></strong></td>
+      <td><strong>Flow Matching</strong></td>
       <td></td>
       <td></td>
     </tr>
