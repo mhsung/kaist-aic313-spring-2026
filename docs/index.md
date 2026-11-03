@@ -227,7 +227,6 @@ Exam schedule:
       <td><strong>Midterm Wrap-Up</strong></td>
       <td></td>
       <td>
-      <td>
       <a href="{{ links.lec11 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
       </td>
     </tr>
@@ -280,7 +279,9 @@ Exam schedule:
       <td>Nov 04</td>
       <td><strong>Denoising Diffusion Implicit Model</strong></td>
       <td>Ch. 25.5.1</td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec15 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
 
     <tr>
