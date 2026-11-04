@@ -211,9 +211,9 @@ team_{team-id:0>2}/           # e.g. team_02
         - No template provided.  
         - Maximum of two A4 pages, excluding references.  
         - All of the following must be included:
-            - **Technical details**: A one-paragraph description of your few-step generation implementation.
+            - **Technical details**: A description of the technical details of your one-step and few-step generation implementation.
             - **Training details**: Training logs (e.g., training loss curves), and total training time.
-            - **Qualitative evidence**: 8 sample images from the early training phases.  
+            - **Qualitative evidence**: 8 sample images from the training phases.  
             - **Citations**: All external code and papers used must be properly cited.
         - ^^Missing any of these items will result in a penalty.^^
         - ^^If the write-up exceeds two pages, any content beyond the second page will be ignored, which may lead to missing required items.^^
