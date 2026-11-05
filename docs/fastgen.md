@@ -133,41 +133,46 @@ Further details are provided in the `README.md` of the [base code]({{links.fastg
 
 ### Evaluation
 
-This is a **team-based competition**. The performance of your image generative models will be evaluated quantitatively using [Fréchet Inception Distance (FID)](https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance){:target="_blank"} scores at **NFE = 1** and **NFE ≤ 4**. The **validation split** will be used as the reference set for FID.
+This is a **team-based challenge**. The performance of your image generative models will be evaluated quantitatively using [Fréchet Inception Distance (FID)](https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance){:target="_blank"} scores at **NFE = 1** and **Few-NFE (2–4)**. The **validation split** will be used as the reference set for FID.
+
+**Grading policy update (November 5):** The FID between the training and validation splits is **20.82**. Given this intrinsic gap, an FID around **22** already represents sufficiently strong performance. The updated policy is intended to encourage interesting ideas, meaningful experiments, and clear analysis rather than extensive automated optimization for very small improvements in FID.
 
 - You may compute FID yourself, but **TA-measured scores are official**.
 - TAs will run your code **as-is** in their environment. Submissions that fail to run are scored as zero for the corresponding metric.
 - Mid-term evaluation results will be published on the leaderboard.
-- At the mid-term evaluation, the **top-1 submission above the TAs' result earns bonus credit**.
 
-**Final grading will be determined relative to the best score achieved for each metric.** You can get up to **20 points** from the FastGen project: up to **10 points for one-NFE** and **10 points for few-NFE**. For each NFE setting, points are assigned as follows:
+**The FastGen Challenge accounts for 15% of the overall course grade.** The final evaluation uses a **fixed target FID of 22**, rather than the best FID achieved by any team. The base score is up to **7 points for one-NFE** and **7 points for few-NFE**, for a total of **14 points before bonus credit**. For each NFE setting, points are assigned as follows:
 
 $$
-\text{Score} = \max\left(\frac{\text{TA's FID} - \text{Your FID}}{\text{TA's FID} - \text{Lowest FID}} \times 3.5 + 5,\; 0\right)
+\text{Score} = \min\left(7,\; \max\left(\frac{\text{TA's FID} - \text{Your FID}}{\text{TA's FID} - 22} \times 3.5 + 3.5,\; 0\right)\right)
 $$
+
+- An FID equal to the TA baseline earns **3.5 points** for that setting.
+- An FID of **22 or lower** earns the full **7 base points** for that setting. Further FID improvements do not increase the score.
 
 **TAs' reference FID scores** (the baseline in the formula above):
 
 | Setting | TAs' FID |
 | --- | --- |
 | 1-NFE | **39.15** |
-| Few-NFE (≤ 4) | **30.90** |
+| Few-NFE (2–4) | **30.90** |
 
-^^These scores will be updated after the mid-term evaluation submission date.^^
+**Mid-term evaluation bonus**
 
-**Bonus points**
+For each NFE setting (**NFE = 1** and **Few-NFE (2–4)**), all teams that achieve an **FID below 22** receive **+0.25 bonus points**, for a maximum of **+0.5 bonus points** in total. This bonus does not depend on leaderboard rank.
 
-| When | Team | Bonus |
-| --- | --- | --- |
-| Mid-term evaluation | 1st | +0.5 |
-| Final evaluation | 1st | +1.0 |
-| Final evaluation | 2nd, 3rd | +0.5 |
+**Final evaluation bonus**
 
-At the final evaluation, the **top three teams for each evaluation setting** receive bonus points. ^^Teams receiving bonus points in the final evaluation must present their work in class on ==November 16 (Monday)== to receive them.^^
+There is **no bonus credit based solely on FID** in the final evaluation. Instead, TAs may select a small number of outstanding reports based on:
+
+- Particularly interesting or creative approaches; and/or
+- Excellent summaries and analyses of the methods and experiments.
+
+Selected teams may receive bonus credit if they agree to share their reports with the rest of the class. **No presentation is required**, including for top-performing teams.
 
 
 ### Mid-Term Evaluation Submission (Optional)
-The purpose of the mid-term evaluation is to provide feedback on your team's standing relative to other teams. **Participation is optional**, but the **top-1** submission that outperforms the TA baseline will earn **bonus credit** toward the final grade.
+The purpose of the mid-term evaluation is to provide feedback on your team's progress. **Participation is optional**. All teams that achieve an **FID below 22** receive **+0.25 bonus points per NFE setting**, for a maximum of **+0.5 bonus points** toward the final grade.
 
 - **Due**: ==October 31 (Saturday), 23:59 KST== (one week before the final submission)
 - **What to submit**
@@ -181,7 +186,7 @@ The purpose of the mid-term evaluation is to provide feedback on your team's sta
 - **Evaluation**
     - The FID results will be published on the leaderboard.
     - We will provide the TAs' FID scores as a baseline.
-    - The top-1 submission that outperforms the TA baseline will earn bonus credit.  
+    - Each NFE setting with an **FID below 22** earns **+0.25 bonus points**, up to **+0.5 bonus points** in total, regardless of rank.
 
 **Example of Mid-Term Submission**
 
@@ -207,17 +212,17 @@ team_{team-id:0>2}/           # e.g. team_02
 - **What to submit**:
     1. **Self-contained source code** (same as the mid-term evaluation submission)
     2. **Model checkpoints** (same as the mid-term evaluation submission)
-    3. **2-page write-up**
+    3. **Write-up (up to 4 pages)**
         - No template provided.  
-        - Maximum of two A4 pages, excluding references.  
+        - Maximum of **four A4 pages**, excluding references. Shorter reports are welcome, provided they include all required components.
         - All of the following must be included:
             - **Technical details**: A description of the technical details of your one-step and few-step generation implementation.
             - **Training details**: Training logs (e.g., training loss curves), and total training time.
             - **Qualitative evidence**: 8 sample images from the training phases.  
             - **Citations**: All external code and papers used must be properly cited.
         - ^^Missing any of these items will result in a penalty.^^
-        - ^^If the write-up exceeds two pages, any content beyond the second page will be ignored, which may lead to missing required items.^^
-- **Bonus**: The top three teams for each evaluation setting receive bonus points (see [Evaluation](#evaluation)). ^^Teams receiving bonus points must present their work in class on ==November 16 (Monday)==.^^
+        - ^^If the write-up exceeds four pages, any content beyond the fourth page will be ignored, which may lead to missing required items.^^
+- **Bonus**: TAs may select outstanding reports for bonus credit based on creativity and/or the quality of the summary and analysis, provided the teams agree to share their reports with the class (see [Evaluation](#evaluation)). **No presentation is required.**
 
 
 ### Self-Evaluation Checklist
