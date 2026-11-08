@@ -66,7 +66,7 @@ We will mainly use selected material from **Part I: Fundamentals** and **Part IV
 - Midterm Exam: 22.5%
 - Final Exam: 27.5%
 - [FastGen Challenge](fastgen.md){:target="_blank"}: 15%
-- CreativeGen Challenge: 20%
+- [CreativeGen Challenge]{creativegen.md}: 20%
 
 
 ## Important Dates

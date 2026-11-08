@@ -39,6 +39,7 @@ copyright: Copyright &copy; 2026 Minhyuk Sung
 nav:
   - Home: index.md
   - FastGen Challenge: fastgen.md
+  - CreativeGen Challenge: creativegen.md
 
 extra:
   analytics:
