@@ -131,7 +131,7 @@ Each individual will assign a Technology Score and Creativity Score to the resul
 Both sessions will be held **online**. **Odd**-numbered teams present on **Monday (December 7)** and **even**-numbered teams on **Wednesday (December 9)**.
 
 - **Attendance is mandatory** in both sessions, with your **camera and mic on all the time**.
-- Each team gives a **1-minute presentation**, strictly timed. The material (poster, video, slides, demo, etc.) is up to your team; test it **before** the session.
+- Each team gives a **1-minute presentation**, strictly timed. The material (poster, video, slides, demo, etc.) is up to your team. Test it **before** the session.
 - Stay on **standby** during the session you present. All discussions must be in **English**.
 
 
@@ -170,7 +170,7 @@ A. Yes, if it is not built on a generative model (e.g., Depth Anything, but not 
 
 ### Recommended Readings
 
-You are *not* limited to these papers; they are provided only as references.
+You are *not* limited to these papers. They are provided only as references.
 
 [1] [Rombach et al., High-Resolution Image Synthesis with Latent Diffusion Models, CVPR 2022.](https://arxiv.org/abs/2112.10752)  
 [2] [Podell et al., SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis, ICLR 2024.](https://arxiv.org/abs/2307.01952)  
