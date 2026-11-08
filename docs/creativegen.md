@@ -17,7 +17,7 @@ hide:
 ^^**Presentation Session 1**^^: December 7 (Monday), 10:30 a.m. - 11:45 a.m. KST  
 ^^**Presentation Session 2**^^: December 9 (Wednesday), 10:30 a.m. - 11:45 a.m. KST  
 
-[Introduction Slides]({{links.visual_gen_slides}}){:target="_blank" .md-button}
+[Introduction Slides]({{links.creativegen_slides}}){:target="_blank" .md-button}
 
 
 ### What to Do
@@ -26,7 +26,7 @@ Explore recent advances in image generative models and use them to create visual
 
 Lecture topics such as [latent diffusion][ldm], [classifier-free guidance][cfg], and [inference-time scaling][its] are a good starting point, but you are strongly encouraged to go further (see [Recommended Readings](#recommended-readings)). Aim for creative and artistic outputs that capture attention at a glance.
 
-You must work with the **same team as in the [FastGen Challenge](../fastgen/)**.
+You must work with the **same team as in the [FastGen Challenge](fastgen.md)**.
 
 
 ### Important Notes
@@ -67,7 +67,7 @@ Pretrained models that do **not** generate images, videos, or 3D content may be 
 
 #### 3. LLMs and VLMs
 
-You may use AI tools for writing code (following the course's [AI Coding Assistant Tool Policy](../#ai-coding-assistant-tool-policy)), LLMs for brainstorming text prompts (disclose this in your write-up), and open-weight VLMs as verifiers that only output scores. LLMs/VLMs must **NOT** produce any visual or spatial content (e.g., images, layouts, meshes), and commercial LLM/VLM APIs must not be called inside your pipeline.
+You may use AI tools for writing code (following the course's [AI Coding Assistant Tool Policy](index.md#ai-coding-assistant-tool-policy)), LLMs for brainstorming text prompts (disclose this in your write-up), and open-weight VLMs as verifiers that only output scores. LLMs/VLMs must **NOT** produce any visual or spatial content (e.g., images, layouts, meshes), and commercial LLM/VLM APIs must not be called inside your pipeline.
 
 
 #### 4. Data and Inputs
@@ -86,15 +86,9 @@ Include all authored inputs (prompts, sketches, meshes, etc.) in your submission
 - **Reproducibility**: Your code must reproduce **every output in your poster and write-up**, with **inference on a single 20 GB GPU** (the KCLOUD vGPU). **Code or data that cannot reproduce your results will be considered as not submitted, resulting in a zero score.**
 
 
-#### 6. Content Guidelines
-
-<!-- TODO(TA): confirm this section. -->
-Do not generate sexual, gory, or hateful content, realistic depictions of real people without their consent, or content centered on copyrighted characters.
-
-
 ### What to Submit
 
-[Poster and Write-Up Templates]({{links.templates}}){:target="_blank" .md-button}  
+[Poster and Write-Up Templates]({{links.creativegen_templates}}){:target="_blank" .md-button}  
 
 1. A poster
     - Please use the poster template in the link above.
