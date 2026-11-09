@@ -282,6 +282,7 @@ Exam schedule:
       <td>Ch. 25.5.1</td>
       <td>
       <a href="{{ links.lec15 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      Recording unavailable due to technical issues.
       </td>
     </tr>
 
@@ -289,9 +290,10 @@ Exam schedule:
       <td rowspan="2" align="center">11</td>
       <td>Nov 09</td>
       <td><strong>Conditional Generation / Latent Diffusion<br><mark>CreativeGen Session</mark></strong></td>
+      <td>Ch. 25.4.1–25.4.4</td>
       <td>
-        Ch. 25.4.1–25.4.4</td>
-      <td></td>
+      <a href="{{ links.lec16 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Nov 11</td>
