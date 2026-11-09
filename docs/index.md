@@ -293,6 +293,7 @@ Exam schedule:
       <td>Ch. 25.4.1–25.4.4</td>
       <td>
       <a href="{{ links.lec16 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec16 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
     <tr>
