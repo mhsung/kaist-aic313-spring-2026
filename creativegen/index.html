@@ -1,0 +1,1074 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Minhyuk Sung">
+      
+      
+        <link rel="canonical" href="https://diffusion.kaist.ac.kr/creativegen/">
+      
+      
+        <link rel="prev" href="../fastgen/">
+      
+      
+        <link rel="next" href="../guest-lecture-jiaxin-shi/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>CreativeGen Challenge - AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-1VHYJZSMF1"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-1VHYJZSMF1",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-1VHYJZSMF1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aic313cs378-introduction-to-generative-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" class="md-header__button md-logo" aria-label="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CreativeGen Challenge
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../fastgen/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FastGen Challenge
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CreativeGen Challenge
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../guest-lecture-jiaxin-shi/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guest Lecture 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../guest-lecture-gyu-rie-lee/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guest Lecture 2
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" class="md-nav__button md-logo" aria-label="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastgen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FastGen Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreativeGen Challenge
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreativeGen Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creativegen-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreativeGen Challenge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreativeGen Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-generative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Generative Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-non-generative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Non-Generative Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-llms-and-vlms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LLMs and VLMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-data-and-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Data and Inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-outputs-and-reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Outputs and Reproducibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-submit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Submit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presentation-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Presentation Sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Readings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guest-lecture-jiaxin-shi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guest Lecture 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guest-lecture-gyu-rie-lee/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guest Lecture 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creativegen-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CreativeGen Challenge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CreativeGen Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-generative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Generative Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-non-generative-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Non-Generative Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-llms-and-vlms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LLMs and VLMs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-data-and-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Data and Inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-outputs-and-reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Outputs and Reproducibility
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-submit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Submit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presentation-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Presentation Sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Readings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="aic313cs378-introduction-to-generative-models">AIC313/CS378: Introduction to Generative Models</h1>
+<h3><b>
+<a href="http://mhsung.github.io/" target="_blank">Minhyuk Sung</a>, <a href="https://www.kaist.ac.kr/" target="_blank">KAIST</a>, Fall 2026
+</b></h3>
+
+<h2 id="creativegen-challenge">CreativeGen Challenge</h2>
+<p><ins><strong>Submission Due</strong></ins>: <mark>December 5 (Saturday), 23:59 KST</mark><br />
+<ins><strong>Where to submit</strong></ins>: <mark>KLMS</mark><br />
+<ins><strong>Presentation Session 1</strong></ins>: December 7 (Monday), 10:30 a.m. - 11:45 a.m. KST<br />
+<ins><strong>Presentation Session 2</strong></ins>: December 9 (Wednesday), 10:30 a.m. - 11:45 a.m. KST  </p>
+<p><a class="md-button" href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy82MDU2MjAyM2I2NjQwMjgyL0lRQW0zMlBDNXFJeVFxckVJTXFCQjVTVUFYdU9sX2xjeVd6QU5RZlJrMEJaR0VZP2U9Z0FVaWFw&amp;cid=60562023B6640282&amp;id=60562023B6640282%21sc263df26a2e64232aac420ca81079494&amp;parId=60562023B6640282%21s961bab5d4e614f89b36b346c3fdbc9ab&amp;o=OneUp" target="_blank">Introduction Slides</a></p>
+<h3 id="what-to-do">What to Do</h3>
+<p>Explore recent advances in image generative models and use them to create visual content in any form, such as 2D images, panoramas, visual illusions, 3D assets (e.g., via <a href="https://arxiv.org/abs/2209.14988">score distillation</a>), mesh textures, or videos rendered from your outputs.</p>
+<p>Lecture topics such as <a href="https://arxiv.org/abs/2112.10752">latent diffusion</a>, <a href="https://arxiv.org/abs/2207.12598">classifier-free guidance</a>, and <a href="https://arxiv.org/abs/2501.09732">inference-time scaling</a> are a good starting point, but you are strongly encouraged to go further (see <a href="#recommended-readings">Recommended Readings</a>). Aim for creative and artistic outputs that capture attention at a glance.</p>
+<p>You must work with the <strong>same team as in the <a href="../fastgen/">FastGen Challenge</a></strong>.</p>
+<h3 id="important-notes">Important Notes</h3>
+<p><ins>Please read the following carefully. Any rule violation, or failure to cite the code, models, datasets, or papers you used, will result in a zero score.</ins></p>
+<p>If you are unsure whether something is allowed, <strong>ask in the #question channel on Slack BEFORE using it</strong>.</p>
+<h4 id="1-generative-models">1. Generative Models</h4>
+<p>The <strong>only</strong> pretrained generative models you may use are:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Allowed Checkpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://huggingface.co/docs/diffusers/en/api/pipelines/stable_diffusion/stable_diffusion_xl">Stable Diffusion XL (SDXL)</a></td>
+<td><a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0"><code>stabilityai/stable-diffusion-xl-base-1.0</code></a></td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/Manojb/stable-diffusion-2-base">Stable Diffusion 2</a></td>
+<td><a href="https://huggingface.co/Manojb/stable-diffusion-2-base"><code>Manojb/stable-diffusion-2-base</code></a> (a mirror of the original <code>stabilityai/stable-diffusion-2-base</code> weights)</td>
+</tr>
+</tbody>
+</table>
+<p>✅ <strong>Allowed</strong></p>
+<ul>
+<li>Modifying and training the allowed models yourself: fine-tuning (e.g., <a href="https://arxiv.org/abs/2106.09685">LoRA</a>, <a href="https://arxiv.org/abs/2208.12242">DreamBooth</a>) and adding new modules (e.g., a <a href="https://arxiv.org/abs/2302.05543">ControlNet</a>), <strong>as long as your team trains them</strong></li>
+<li>Training your own generative models from scratch (e.g., <a href="https://arxiv.org/abs/2003.08934">NeRF</a>, <a href="https://arxiv.org/abs/2308.04079">3D Gaussian Splatting</a>)</li>
+</ul>
+<p>❌ <strong>NOT allowed</strong></p>
+<p>Any other pretrained generative weights, <strong>even if they are derived from SDXL or SD2</strong>:</p>
+<ul>
+<li>Other image generators and their variants (e.g., the <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0">SDXL refiner</a>, <a href="https://arxiv.org/abs/2403.03206">SD 3.x</a>, <a href="https://huggingface.co/black-forest-labs">FLUX</a>, <a href="https://arxiv.org/abs/2311.17042">SDXL-Turbo</a>)</li>
+<li>Downloaded add-on weights (e.g., LoRAs, ControlNets, <a href="https://arxiv.org/abs/2308.06721">IP-Adapters</a>)</li>
+<li>Generative models used as tools (e.g., <a href="https://arxiv.org/abs/2312.02145">Marigold</a> for depth, <a href="https://arxiv.org/abs/2403.02151">TripoSR</a> for 3D, <a href="https://arxiv.org/abs/2107.10833">Real-ESRGAN</a> for upscaling)</li>
+<li>Commercial generative models and services (e.g., ChatGPT, Gemini, Midjourney)</li>
+</ul>
+<h4 id="2-non-generative-models">2. Non-Generative Models</h4>
+<p>Pretrained models that do <strong>not</strong> generate images, videos, or 3D content may be used for guidance, rewards, or verification, such as <a href="https://arxiv.org/abs/2103.00020">CLIP</a>, reward models (<a href="https://arxiv.org/abs/2304.05977">ImageReward</a>, <a href="https://arxiv.org/abs/2305.01569">PickScore</a>), and perception models (<a href="https://arxiv.org/abs/2304.02643">SAM</a>, <a href="https://arxiv.org/abs/2401.10891">Depth Anything</a>).</p>
+<h4 id="3-llms-and-vlms">3. LLMs and VLMs</h4>
+<p>You may use AI tools for writing code (following the course's <a href="../#ai-coding-assistant-tool-policy">AI Coding Assistant Tool Policy</a>), LLMs for brainstorming text prompts (disclose this in your write-up), and open-weight VLMs as verifiers that only output scores. LLMs/VLMs must <strong>NOT</strong> produce any visual or spatial content (e.g., images, layouts, meshes), and commercial LLM/VLM APIs must not be called inside your pipeline.</p>
+<h4 id="4-data-and-inputs">4. Data and Inputs</h4>
+<ul>
+<li><strong>Training data</strong>: Existing data may be used <strong>only for fine-tuning</strong>, and must be free and properly licensed (no paid data or data generated by other models). List every dataset with a link in your write-up.</li>
+<li><strong>Inference inputs</strong>: Outputs must be generated purely by your pipeline from prompts, seeds, and simple inputs authored by your team (e.g., rough sketches, masks). Existing data, <strong>including your own photos</strong>, must NOT be used as inputs or references.</li>
+<li><strong>Meshes</strong>: Any mesh must be generated by your pipeline or code, or built from simple primitives (e.g., cubes, spheres) in open-source tools such as Blender. Downloaded 3D assets (e.g., <a href="https://arxiv.org/abs/2212.08051">Objaverse</a>) are not allowed.</li>
+</ul>
+<p>Include all authored inputs (prompts, sketches, meshes, etc.) in your submission.</p>
+<h4 id="5-outputs-and-reproducibility">5. Outputs and Reproducibility</h4>
+<ul>
+<li><strong>Post-processing</strong>: Only basic operations (e.g., cropping, resizing, arranging outputs on your poster) are allowed. Manual painting, retouching, or compositing is not allowed.</li>
+<li><strong>Sample selection</strong>: You may select your best results, but report how many samples you generated, how you selected them, and their seeds.</li>
+<li><strong>Reproducibility</strong>: Your code must reproduce <strong>every output in your poster and write-up</strong>, with <strong>inference on a single 20 GB GPU</strong> (the KCLOUD vGPU). <strong>Code or data that cannot reproduce your results will be considered as not submitted, resulting in a zero score.</strong></li>
+</ul>
+<h3 id="what-to-submit">What to Submit</h3>
+<p><a class="md-button" href="{{ no such element: super_collections.SuperDict object['creativegen_templates'] }}" target="_blank">Poster and Write-Up Templates</a>  </p>
+<ol>
+<li>A poster<ul>
+<li>Please use the poster template in the link above.</li>
+<li>Name the submission file "Team_{TEAM ID}_poster.pdf" (e.g., Team_10_poster.pdf).</li>
+<li>Format: PDF</li>
+<li>File size limit: 10 MB</li>
+<li><strong>If you do not submit your poster by the deadline, you will NOT be allowed to present at the poster session, resulting in a zero score in peer evaluation.</strong></li>
+</ul>
+</li>
+<li>Source code and data<ul>
+<li>Ensure the reproducibility of your work with your provided code and data.</li>
+<li><strong>Code or data that cannot reproduce your results will be considered as not submitted, resulting in a zero score.</strong></li>
+</ul>
+</li>
+<li>Write-up<ul>
+<li>It is not required to use the template in the link above, but your write-up must include:<ul>
+<li>Project title</li>
+<li>Teammates' names and student IDs</li>
+<li>Brief description of the visual content</li>
+<li>Discussion of technical aspects</li>
+<li>Discussion of artistic aspects</li>
+<li>Reproduction steps using your code and data</li>
+</ul>
+</li>
+<li>Name the submission file "Team_{TEAM ID}_writeup.pdf" (e.g., Team_10_writeup.pdf).</li>
+<li>Format: PDF</li>
+<li>Length limit: Up to 4 pages in A4 size, excluding references.</li>
+<li>File size limit: 10 MB</li>
+<li><strong>Properly cite all the code and resources you have used. Missing references will be considered as misconduct, resulting in a zero score.</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="evaluation">Evaluation</h3>
+<p>Your results will be evaluated based on Technology Score and Creativity Score by the instructor, TAs, and your peer classmates.</p>
+<ul>
+<li><strong>Technology Score</strong> [1–5 range]: This indicates the technical novelty and difficulty in creating the visual content.</li>
+<li><strong>Creativity Score</strong> [1–5 range]: This indicates the originality and artistic value of the visual content.</li>
+</ul>
+<p>For both, higher is better, and only integer scores are permitted.</p>
+<p>Each individual will assign a Technology Score and Creativity Score to the results of all classmates. The scores given by one person to all results will be normalized. Then, the average of these normalized scores for each criterion will determine your final score.</p>
+<h3 id="presentation-sessions">Presentation Sessions</h3>
+<p>Both sessions will be held <strong>online</strong>. <strong>Odd</strong>-numbered teams present on <strong>Monday (December 7)</strong> and <strong>even</strong>-numbered teams on <strong>Wednesday (December 9)</strong>.</p>
+<ul>
+<li><strong>Attendance is mandatory</strong> in both sessions, with your <strong>camera and mic on all the time</strong>.</li>
+<li>Each team gives a <strong>1-minute presentation</strong>, strictly timed. The material (poster, video, slides, demo, etc.) is up to your team. Test it <strong>before</strong> the session.</li>
+<li>Stay on <strong>standby</strong> during the session you present. All discussions must be in <strong>English</strong>.</li>
+</ul>
+<h3 id="faq">FAQ</h3>
+<p><strong>Q. Can we use publicly released ControlNet, IP-Adapter, or LoRA weights?</strong><br />
+A. No. You may add these modules to SDXL/SD2, but your team must train them.</p>
+<p><strong>Q. Can we use SDXL-Turbo or LCM-LoRA to speed up generation?</strong><br />
+A. No. You may implement your own acceleration (e.g., based on your FastGen work) on top of the allowed models.</p>
+<p><strong>Q. Can we fine-tune on our own photos and then use them as img2img inputs?</strong><br />
+A. Fine-tuning on your own photos is allowed. Using them as inference inputs is not.</p>
+<p><strong>Q. Can we upscale our outputs?</strong><br />
+A. Only with classical interpolation or your own method built on the allowed models (e.g., tiled SDEdit with SDXL). Learned upscalers are not allowed.</p>
+<p><strong>Q. Can we use a depth estimator to lift our images into 3D?</strong><br />
+A. Yes, if it is not built on a generative model (e.g., Depth Anything, but not Marigold).</p>
+<h3 id="grading">Grading</h3>
+<p><ins><strong>There is no late day. Submit on time.</strong></ins></p>
+<p><strong>Late submission</strong>: <mark>Zero score</mark>.<br />
+<strong>Missing any of the poster, code/data, and write-up</strong>: <mark>Zero score</mark>.<br />
+<strong>Missing citations of code, models, datasets, or papers</strong>: <mark>Zero score</mark>.<br />
+<strong>Missing other required items in the write-up</strong>: <mark>10% penalty for each</mark>.<br />
+<strong>Wrong format</strong>: <mark>10% penalty for each</mark>.  </p>
+<p><strong>Absence (at any time) at the sessions</strong>: <mark>20% penalty for each session</mark>.<br />
+<strong>Turning off camera or mic</strong>: <mark>20% penalty for each session</mark>.<br />
+<strong>Not staying on standby during the session you present</strong>: <mark>20% penalty</mark>.  </p>
+<h3 id="recommended-readings">Recommended Readings</h3>
+<p>You are <em>not</em> limited to these papers. They are provided only as references.</p>
+<p>[1] <a href="https://arxiv.org/abs/2306.05178">Lee et al., SyncDiffusion: Coherent Montage via Synchronized Joint Diffusions, NeurIPS 2023.</a><br />
+[2] <a href="https://arxiv.org/abs/2403.14370">Kim et al., SyncTweedies: A General Generative Framework Based on Synchronized Diffusions, NeurIPS 2024.</a><br />
+[3] <a href="https://arxiv.org/abs/2501.15445">Yeo et al., StochSync: Stochastic Diffusion Synchronization for Image Generation in Arbitrary Spaces, ICLR 2025.</a><br />
+[4] <a href="https://arxiv.org/abs/2506.01320">Yoon et al., Ψ-Sampler: Initial Particle Sampling for SMC-Based Inference-Time Reward Alignment in Score Models, NeurIPS 2025.</a><br />
+[5] <a href="https://arxiv.org/abs/2112.10752">Rombach et al., High-Resolution Image Synthesis with Latent Diffusion Models, CVPR 2022.</a><br />
+[6] <a href="https://arxiv.org/abs/2307.01952">Podell et al., SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis, ICLR 2024.</a><br />
+[7] <a href="https://arxiv.org/abs/2207.12598">Ho and Salimans, Classifier-Free Diffusion Guidance, 2022.</a><br />
+[8] <a href="https://arxiv.org/abs/2108.01073">Meng et al., SDEdit: Guided Image Synthesis and Editing with Stochastic Differential Equations, ICLR 2022.</a><br />
+[9] <a href="https://arxiv.org/abs/2208.01626">Hertz et al., Prompt-to-Prompt Image Editing with Cross Attention Control, ICLR 2023.</a><br />
+[10] <a href="https://arxiv.org/abs/2302.05543">Zhang et al., Adding Conditional Control to Text-to-Image Diffusion Models, ICCV 2023.</a><br />
+[11] <a href="https://arxiv.org/abs/2106.09685">Hu et al., LoRA: Low-Rank Adaptation of Large Language Models, ICLR 2022.</a><br />
+[12] <a href="https://arxiv.org/abs/2208.12242">Ruiz et al., DreamBooth: Fine Tuning Text-to-Image Diffusion Models for Subject-Driven Generation, CVPR 2023.</a><br />
+[13] <a href="https://arxiv.org/abs/2208.01618">Gal et al., An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion, ICLR 2023.</a><br />
+[14] <a href="https://arxiv.org/abs/2302.07121">Bansal et al., Universal Guidance for Diffusion Models, ICLR 2024.</a><br />
+[15] <a href="https://arxiv.org/abs/2501.09732">Ma et al., Inference-Time Scaling for Diffusion Models beyond Scaling Denoising Steps, CVPR 2025.</a><br />
+[16] <a href="https://arxiv.org/abs/2302.08113">Bar-Tal et al., MultiDiffusion: Fusing Diffusion Paths for Controlled Image Generation, ICML 2023.</a><br />
+[17] <a href="https://arxiv.org/abs/2311.17919">Geng et al., Visual Anagrams: Generating Multi-View Optical Illusions with Diffusion Models, CVPR 2024.</a><br />
+[18] <a href="https://arxiv.org/abs/2209.14988">Poole et al., DreamFusion: Text-to-3D using 2D Diffusion, ICLR 2023.</a><br />
+[19] <a href="https://arxiv.org/abs/2305.16213">Wang et al., ProlificDreamer: High-Fidelity and Diverse Text-to-3D Generation with Variational Score Distillation, NeurIPS 2023.</a><br />
+[20] <a href="https://arxiv.org/abs/2308.04079">Kerbl et al., 3D Gaussian Splatting for Real-Time Radiance Field Rendering, SIGGRAPH 2023.</a>  </p>
+<p><br /></p>
+<p><a href="#">Back to top</a>
+<br /></p>
+<!-- Reference-style links for papers and models mentioned in the text (not rendered). -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Minhyuk Sung
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
