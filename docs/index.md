@@ -315,7 +315,7 @@ Exam schedule:
     <tr>
       <td>Nov 18</td>
       <td>
-      <strong>Guest Lecture 1: <a href="https://jiaxins.io/" target="_blank" rel="noopener noreferrer">Jiaxin Shi</a></strong><br>
+      <strong>Guest Lecture 1: <a href="guest-lecture-jiaxin-shi/" target="_blank" rel="noopener noreferrer">Jiaxin Shi</a></strong><br>
       Meta SuperIntelligence Labs<br>
       Discrete Diffusion
       </td>
@@ -343,7 +343,7 @@ Exam schedule:
       <td rowspan="2" align="center">14</td>
       <td>Nov 30</td>
       <td>
-      <strong>Guest Lecture 2: <a href="https://sites.google.com/view/aipdlab/home/people/pi" target="_blank" rel="noopener noreferrer">Gyu Rie Lee</a></strong><br>
+      <strong>Guest Lecture 2: <a href="guest-lecture-gyu-rie-lee/" target="_blank" rel="noopener noreferrer">Gyu Rie Lee</a></strong><br>
       KAIST<br>
       Generative Protein Design
       </td>
