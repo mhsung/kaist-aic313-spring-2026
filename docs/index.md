@@ -310,8 +310,10 @@ Exam schedule:
       <td rowspan="2" align="center">12</td>
       <td>Nov 16</td>
       <td><strong>Flow Matching</strong></td>
-      <td>Ch. 25.4.7</td>
-      <td></td>
+      <td>Ch. 23.2.6, 25.4.7</td>
+      <td>
+      <a href="{{ links.lec18 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Nov 18</td>
