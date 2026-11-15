@@ -302,6 +302,7 @@ Exam schedule:
       <td>Ch. 25.2.4, 25.4.1–25.4.6, 25.5.1</td>
       <td>
       <a href="{{ links.lec17 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec17 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
 
@@ -353,7 +354,7 @@ Exam schedule:
     <tr>
       <td>Dec 02</td>
       <td>
-      <strong>Guest Lecture 3: <a href="https://jberner.info/" target="_blank" rel="noopener noreferrer">Julius Berner</a></strong><br>
+      <strong>Guest Lecture 3: <a href="guest-lecture-julius-berner/" target="_blank" rel="noopener noreferrer">Julius Berner</a></strong><br>
       NVIDIA<br>
       Fast Video Generation
       </td>
