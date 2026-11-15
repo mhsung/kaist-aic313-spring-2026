@@ -318,7 +318,7 @@ Exam schedule:
       <td>
       <strong>Guest Lecture 1: <a href="guest-lecture-jiaxin-shi/" target="_blank" rel="noopener noreferrer">Jiaxin Shi</a></strong><br>
       Meta SuperIntelligence Labs<br>
-      Discrete Diffusion
+      Discrete Diffusion <strong>(Online)</strong>
       </td>
       <td></td>
       <td></td>
@@ -346,7 +346,7 @@ Exam schedule:
       <td>
       <strong>Guest Lecture 2: <a href="guest-lecture-gyu-rie-lee/" target="_blank" rel="noopener noreferrer">Gyu Rie Lee</a></strong><br>
       KAIST<br>
-      Generative Protein Design
+      Generative Protein Design <strong>(In person)</strong>
       </td>
       <td></td>
       <td></td>
@@ -356,7 +356,7 @@ Exam schedule:
       <td>
       <strong>Guest Lecture 3: <a href="guest-lecture-julius-berner/" target="_blank" rel="noopener noreferrer">Julius Berner</a></strong><br>
       NVIDIA<br>
-      Fast Video Generation
+      Fast Video Generation <strong>(Online)</strong>
       </td>
       <td></td>
       <td></td>
