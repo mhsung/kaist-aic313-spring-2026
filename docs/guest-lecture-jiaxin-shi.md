@@ -10,13 +10,13 @@ hide:
 
 ### <b>Guest Lecture at [AIC313/CS378: Introduction to Generative Models](../){:target="_blank"}<br>[Minhyuk Sung](http://mhsung.github.io/){:target="_blank"}, [KAIST](https://www.kaist.ac.kr/){:target="_blank"}, Fall 2026</b>
 
+<!--
 <br />
 [Zoom Link]({{links.zoom}}){:target="_blank" .md-button}
 [Google Calendar Link](https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NzEzZ2hjcjlvM2dqZGE0ZXRlaWk4am4yNzQgamhvMGR0bDBwczVjaWl2ZmxqOXJ0NmU0cWtAZw&tmsrc=jho0dtl0ps5ciivflj9rt6e4qk%40group.calendar.google.com){:target="_blank" .md-button}
-
-<!--
-[Recording]({{links.guest_rec1}}){:target="_blank" .md-button}
 -->
+
+[Recording]({{links.guest_rec1}}){:target="_blank" .md-button}
 
 <br />
 

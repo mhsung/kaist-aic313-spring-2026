@@ -313,6 +313,7 @@ Exam schedule:
       <td>Ch. 23.2.6, 25.4.7</td>
       <td>
       <a href="{{ links.lec18 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec18 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
       </td>
     </tr>
     <tr>
@@ -323,16 +324,20 @@ Exam schedule:
       Discrete Diffusion <strong>(Online)</strong>
       </td>
       <td></td>
-      <td></td>
+      <td>
+      <a href="{{ links.guest_rec1 }}" target="_blank" rel="noopener noreferrer">Recording</a>
+      </td>
     </tr>
 
     <tr>
       <td rowspan="2" align="center">13</td>
       <td>Nov 23</td>
-      <td><strong>Inference-Time Scaling</strong></td>
+      <td><strong>Diffusion and Flow Models – Summary</strong></td>
       <td>
       </td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec19 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      </td>
     </tr>
     <tr>
       <td>Nov 25</td>
