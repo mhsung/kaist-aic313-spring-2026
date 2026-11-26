@@ -1,0 +1,802 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Minhyuk Sung">
+      
+      
+        <link rel="canonical" href="https://diffusion.kaist.ac.kr/image-generation-challenge/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>CS492(C): Diffusion and Flow Models - AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-1VHYJZSMF1"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-1VHYJZSMF1",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-1VHYJZSMF1",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cs492c-diffusion-and-flow-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" class="md-header__button md-logo" aria-label="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CS492(C): Diffusion and Flow Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../fastgen/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FastGen Challenge
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../creativegen/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  CreativeGen Challenge
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../guest-lecture-jiaxin-shi/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guest Lecture 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../guest-lecture-gyu-rie-lee/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guest Lecture 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../guest-lecture-julius-berner/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guest Lecture 3
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" class="md-nav__button md-logo" aria-label="AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    AIC313/CS378 Introduction to Generative Models (KAIST, Fall 2026)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fastgen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FastGen Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creativegen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CreativeGen Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guest-lecture-jiaxin-shi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guest Lecture 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guest-lecture-gyu-rie-lee/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guest Lecture 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guest-lecture-julius-berner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guest Lecture 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#image-generation-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Generation Challenge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Image Generation Challenge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to Do
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataset-and-base-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset and Base Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mid-term-evaluation-submission-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mid-Term Evaluation Submission (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Submission
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-readings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Readings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="cs492c-diffusion-and-flow-models">CS492(C): Diffusion and Flow Models</h1>
+<h3><b>
+<a href="http://mhsung.github.io/" target="_blank">Minhyuk Sung</a>, <a href="https://www.kaist.ac.kr/" target="_blank">KAIST</a>, Fall 2025
+</b></h3>
+
+<h2 id="image-generation-challenge">Image Generation Challenge</h2>
+<p><ins><strong>Mid-Term Evaluation Submission  Due</strong></ins>: <mark>November 2 (Sunday), 23:59 KST</mark><br />
+<ins><strong>Final Submission Due</strong></ins>: <mark>November 15 (Saturday), 23:59 KST</mark><br />
+<ins><strong>Where to submit</strong></ins>: <mark>KLMS</mark>  </p>
+<h3 id="what-to-do">What to Do</h3>
+<p>In this challenge, your task is to train an <strong>image diffusion/flow model</strong> beyond the previous 2D toy experiment setups from the assignments. After training, you are encouraged to explore and apply any techniques you find effective for achieving <strong>high-quality generation</strong> with only <strong>a few sampling steps</strong>.</p>
+<p>Specifically, your tasks are as follows:</p>
+<ol>
+<li>
+<p><strong>Implementing a Diffusion/Flow Wrapper</strong></p>
+<ul>
+<li>We provide the <strong>architecture backbone</strong> (which should remain fixed), but everything around it is up to you.</li>
+<li>Your goal is to design and implement <strong>your own diffusion/flow model wrapper</strong>, including <strong>noise schedulers</strong> as well as the <strong>forward and reverse processes</strong>.  </li>
+</ul>
+</li>
+<li>
+<p><strong>Improving Few-Step Generation</strong></p>
+<ul>
+<li>Once your diffusion/flow wrapper is ready, the main challenge is to investigate and improve the generation quality with <strong>very few sampling steps</strong>.</li>
+<li>Your models will be evaluated with <strong>three Number of Function Evaluations (NFEs): 1, 2, and 4</strong>.</li>
+<li>You are encouraged to experiment with the latest techniques, such as Consistency Models, ReFlow, or any other advanced methods you find effective.</li>
+<li>Check out the <a href="#recommended-readings">Recommended Readings</a> section, but you are <em>not</em> limited to implementing one of the algorithms introduced in those papers; they are provided only as references.</li>
+</ul>
+</li>
+</ol>
+<p><strong><mark>Important Notes</mark></strong></p>
+<p><ins>PLEASE READ THE FOLLOWING CAREFULLY! Any violation of the rules or failure to properly cite existing code, models, or papers used in the project in your write-up will result in a zero score.</ins></p>
+<ul>
+<li><strong>DO NOT</strong> use any pretrained diffusion model. You must train the model from scratch.  </li>
+<li><strong>DO NOT</strong> modify the provided U-Net architecture code.  </li>
+<li><strong>DO NOT</strong> modify the provided sampling code and evaluation script. These will be distributed to ensure consistent evaluation across all submissions.  </li>
+<li>You are allowed to use open-source implementations, as long as they are <strong>clearly mentioned and cited</strong> in your write-up.  </li>
+</ul>
+<h3 id="dataset-and-base-code">Dataset and Base Code</h3>
+<p>You are required to use the <a href="https://www.kaggle.com/datasets/kostastokis/simpsons-faces" target="_blank">Simpsons Face</a> image dataset for training and evaluation.</p>
+<p><img alt="Dataset" src="assets/simpson.png" width="50%" /></p>
+<p><strong>You do not need to download the dataset yourself.</strong> We will provide a script in the base code that automatically downloads the dataset.</p>
+<p><a class="md-button" href="{{ no such element: super_collections.SuperDict object['image_gen_repo'] }}" target="_blank">Base Code</a></p>
+<h3 id="evaluation">Evaluation</h3>
+<ul>
+<li>
+<p>This is a <strong>team-based competition</strong>. The performance of your image generative models will be evaluated quantitatively using <a href="https://en.wikipedia.org/wiki/Fr%C3%A9chet_inception_distance" target="_blank">Fréchet Inception Distance (FID)</a> scores at Numbers of Function Evaluations (NFEs) = 1, 2, and 4.</p>
+</li>
+<li>
+<p>The TAs will provide FID scores computed using their own implementation of diffusion and flow models as reference values (the code will not be released). You are expected to match or surpass these reference FIDs.</p>
+</li>
+<li>
+<p>Additionally, to help everyone gauge progress, there will be a <a href="#mid-term-evaluation-submission-optional" target="_blank">Mid-Term Evaluation</a>  where teams can submit intermediate results. <strong>Participation is optional</strong>, but the top team at each NFE in the mid-term evaluation that also outperforms the TAs’ FID scores will receive <strong>bonus credit</strong> toward the final grade. All submitted results will be shared anonymously with the class so that teams can see how others are performing.</p>
+</li>
+<li>
+<p><strong>Final grading will be determined relative to the best FID score achieved for each NFE.</strong> Specifically, the score for each NFE is calculated as follows:
+    $$
+    \text{Score} = \max\left(
+    \frac{\text{TA's FID} - \text{Your FID}}
+    {\text{TA's FID} - \text{Lowest FID}} \times 4 + 5,\; 0
+    \right)
+    $$</p>
+<ul>
+<li>When Your FID=Lowest FID, you get 9 points for that NFE.</li>
+<li>When Your FID=TA′s FID, you get 5 points for that NFE.</li>
+</ul>
+</li>
+<li>
+<p>Bonus credits per NFE:</p>
+<ul>
+<li><strong>Mid-term Evaluation Bonus</strong>: Every team that outperforms the TA’s FID at the mid-term evaluation receives +0.5 point (for that NFE).</li>
+<li><strong>Winner Bonus</strong>: If your team achieves the lowest FID for an NFE, you receive +0.5 point (for that NFE).</li>
+</ul>
+</li>
+<li>
+<p>In total, the image generation challenge is worth a maximum of 30 points.</p>
+</li>
+</ul>
+<!--In other words, the team with the lowest (best) FID for a given NFE will set the benchmark, and other teams will be graded proportionally against that score.-->
+
+<h3 id="mid-term-evaluation-submission-optional">Mid-Term Evaluation Submission (Optional)</h3>
+<p>The purpose of the mid-term evaluation is to give all students a reference point for how other teams are progressing. <strong>Participation is optional</strong>, but the top team at each NFE in the mid-term evaluation that also outperforms the TAs’ FID scores will receive <strong>bonus credit</strong> toward the final grade.</p>
+<ul>
+<li><strong>What to submit</strong><ol>
+<li><strong>Self-contained source code</strong> <ul>
+<li>Your submission must include the complete codebase necessary to run end-to-end from the TAs' side.</li>
+<li>TAs will run your code in their environment without additional modifications.</li>
+<li>For consistent evaluation, the files <code>sampling.py</code> and <code>measure_fid.py</code> will be replaced with the official versions.</li>
+</ul>
+</li>
+<li><strong>A model checkpoint and config json file</strong>  </li>
+</ol>
+</li>
+<li><strong>Grading Procedure</strong><ul>
+<li>TAs will run your submitted code in their Python environment.</li>
+<li>The FID scores measured by TAs will be published on the leaderboard.</li>
+<li>Submissions that fail to run in the TA environment will be marked as failed on the leaderboard.</li>
+<li>Among the submissions exceeding the TAs' result, the top-k will earn bonus credit.  </li>
+</ul>
+</li>
+</ul>
+<h3 id="final-submission">Final Submission</h3>
+<ul>
+<li><strong>What to submit</strong>:<ol>
+<li><strong>Self-contained source code</strong> </li>
+<li><strong>A model checkpoint and config json file</strong>  </li>
+<li><strong>2-page write-up</strong>.<ul>
+<li>No template provided.  </li>
+<li>Maximum of two A4 pages, excluding references.  </li>
+<li>All of the following must be included:<ul>
+<li><strong>Technical details</strong>: One-paragraph description of the technical details of your few-step generation implementation.</li>
+<li><strong>Training details</strong>: Training logs (e.g., training loss curves), and total training time.</li>
+<li><strong>Qualitative evidence</strong>: ~8 sample images from the early training phases.  </li>
+<li><strong>Citations</strong>: All external code, and papers used must be properly cited.</li>
+</ul>
+</li>
+<li><ins>Missing any of these items will result in a penalty.</ins></li>
+<li><ins>If the write-up exceeds two pages, any content beyond the second page will be ignored, which may lead to missing required items.</ins></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="grading">Grading</h3>
+<p><ins><strong>There is no late day. Submit on time.</strong></ins><br />
+<strong>Late submission</strong>: <mark>Zero score</mark>.<br />
+<strong>Missing any required item in the final submission (samples, code/model, write-up)</strong>: <mark>Zero score</mark>.<br />
+<strong>Missing items in the write-up</strong>: <mark>10% penalty for each</mark>.  </p>
+<h3 id="recommended-readings">Recommended Readings</h3>
+<p>[1]  <a href="https://arxiv.org/abs/2303.01469" target="_blank">Song et al., Consistency Models, ICML 2023.</a><br />
+[2]  <a href="https://arxiv.org/abs/2310.02279" target="_blank">Kim et al., Consistency Trajectory Models: Learning Probability Flow ODE Trajectory of Diffusion, ICLR 2024.</a><br />
+[3]  <a href="https://arxiv.org/abs/2209.03003" target="_blank">Liu et al., Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow, ICLR 2023.</a><br />
+[4]  <a href="https://arxiv.org/abs/2410.12557" target="_blank">Frans et al., One Step Diffusion via Shortcut Models, ICLR 2025.</a><br />
+[5]  <a href="https://arxiv.org/abs/2405.15506" target="_blank">Tong et al., Learning to Discretize Denoising Diffusion ODEs, ICLR 2025.</a>  </p>
+<p><br /></p>
+<p><a href="#">Back to top</a>
+<br /></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Minhyuk Sung
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
