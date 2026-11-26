@@ -88,7 +88,7 @@ Include all authored inputs (prompts, sketches, meshes, etc.) in your submission
 
 ### What to Submit
 
-[Poster and Write-Up Templates]({{links.creativegen_templates}}){:target="_blank" .md-button}  
+[Poster and Write-Up Templates]({{links.creativegen_template}}){:target="_blank" .md-button}  
 
 1. A poster
     - Please use the poster template in the link above.
@@ -128,11 +128,24 @@ Each individual will assign a Technology Score and Creativity Score to the resul
 
 ### Presentation Sessions
 
-Both sessions will be held **online**. **Odd**-numbered teams present on **Monday (December 7)** and **even**-numbered teams on **Wednesday (December 9)**.
+- **All sessions are mandatory.** Your attendance will be checked at the beginning, middle, and end of each session.
 
-- **Attendance is mandatory** in both sessions, with your **camera and mic on all the time**.
-- Each team gives a **1-minute presentation**, strictly timed. The material (poster, video, slides, demo, etc.) is up to your team. Test it **before** the session.
-- Stay on **standby** during the session you present. All discussions must be in **English**.
+- Your **camera** and **mic** must be turned on **all the time**.
+
+- **Find your poster BEFORE the sessions**, and also check whether your camera and mic work, and you can share your screen.
+
+- You will play a role of a **presenter** in one session and a **questioner** in the other session. **Odd** number teams will present on **Monday**, and **even** number teams will present on **Wednesday**.
+
+- Each session will begin with a **1-minute pitch** from the presenters. When it's your turn, please follow these steps:
+    - Introduce yourself (just your name).
+    - Share your screen and play the video.
+    - Provide a 1-minute description of your work.
+
+- In the session you present, you must be on **standby** in front of your poster during the entire session and wait for the questioners.
+
+- The instructor will stop by each poster with the schedule below (subject to change).
+
+- All discussions during the poster sessions must be done in **English**.
 
 
 ### FAQ

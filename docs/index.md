@@ -313,7 +313,7 @@ Exam schedule:
       <td>Ch. 23.2.6, 25.4.7</td>
       <td>
       <a href="{{ links.lec18 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
-      <a href="{{ links.rec18 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec18 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
     <tr>
@@ -337,14 +337,18 @@ Exam schedule:
       </td>
       <td>
       <a href="{{ links.lec19 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec19 }}" target="_blank" rel="noopener noreferrer">Recording</a>
       </td>
     </tr>
     <tr>
       <td>Nov 25</td>
-      <td><strong>Recent Topics / Course Wrap-Up</strong></td>
+      <td><strong>Advanced Topics / Course Wrap-Up</strong></td>
       <td>
       </td>
-      <td></td>
+      <td>
+      <a href="{{ links.lec20 }}" target="_blank" rel="noopener noreferrer">Slides</a><br>
+      <a href="{{ links.rec20 }}" target="_blank" rel="noopener noreferrer">Recording</a>
+      </td>
     </tr>
 
     <tr>
